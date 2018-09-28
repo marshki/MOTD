@@ -1,10 +1,10 @@
 #!/bin/bash 
 
-time_up(){ 
-  # uptime: days hours:minutes 
+last_login(){ 
+  # last login 
   
-  timeup=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
-  printf "%s" "$timeup" 
-}
+  last_log=$(last | awk 'NR==2'|tr -s ' ')
+  printf "%s\\n" "$last_log"
+} 
 
-time_up
+last_login
