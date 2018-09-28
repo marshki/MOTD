@@ -54,14 +54,21 @@ processes(){
   printf "%s" "$procs (total)" 
 } 
 
+mem_info(){ 
+  # memory stats: used unused 
+  # works in BSD not Linux; need to generalize 
 
-# memory stats: used unused 
-# works in BSD not Linux; need to generalize 
-mem_info=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
+  mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
+  printf "%s" "$mem (used unused)"
 
-# disk stats: size used avail. capacity in GBs
-disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
+} 
 
+disk_usage(){
+  # disk stats: size used avail. capacity in GBs
+
+  disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
+  printf "%s" "$disk_usg (size used avail capacity)"
+} 
 
 
 printf "%s" "
