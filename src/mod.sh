@@ -40,8 +40,13 @@ load_averages(){
   printf "%s" "$load_avg (1, 5, 15 min)" 
 } 
 
-# today: year month hour minute 24-hour timezone(abbr.)
-today=$(date +"%Y %B %e, %A, %T %Z")
+today(){ 
+  # today: year month hour minute 24-hour timezone(abbr.)
+
+  tdy=$(date +"%Y %B %e, %A, %T %Z")
+  printf "%s" "
+} 
+
 
 # running processes
 processes=$(ps ax | wc -l | tr -d " ")
