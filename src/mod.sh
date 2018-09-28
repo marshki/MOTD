@@ -2,7 +2,7 @@
 # mjk 2018.09.28 
 
 # header array 
-HEADR=(HOSTNAME UPTIME "LAST LOGIN" "Load Averages" "Running Processes" "Memory Usage" "Disk Usage" "Time")
+HEADR=(HOSTNAME UPTIME "LAST LOGIN" "LOAD AVGS." "Running Processes" "Memory Usage" "Disk Usage" "Time")
 
 dots(){ 
   # seq increments a period (".") 1-n times, where n is user defined   
@@ -16,7 +16,7 @@ host_name(){
   # fully-qualified domain name 
   
   host=$(hostname -f)
-  printf "%s" "$host"  
+  printf "%s" "$host (FQDN)"  
 }  
 
 time_up(){ 
@@ -44,7 +44,7 @@ today(){
   # today: year month hour minute 24-hour timezone(abbr.)
 
   tdy=$(date +"%Y %B %e, %A, %T %Z")
-  printf "%s" "
+  printf "%s" "$tdy"
 } 
 
 
