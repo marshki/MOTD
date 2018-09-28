@@ -47,9 +47,13 @@ today(){
   printf "%s" "$tdy"
 } 
 
+processes(){ 
+  # running processes
+  
+  procs=$(ps ax | wc -l | tr -d " ")
+  printf "%s" "$procs (total)" 
+} 
 
-# running processes
-processes=$(ps ax | wc -l | tr -d " ")
 
 # memory stats: used unused 
 # works in BSD not Linux; need to generalize 
