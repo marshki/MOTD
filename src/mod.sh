@@ -32,8 +32,13 @@ last_login(){
   last_log=$(last | awk 'NR==2'|tr -s ' ')
   printf "%s" "$last_log"
 } 
-# load avgs. over the past 1,5,15 min. intvls. 
-load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
+
+load_averages(){ 
+  # load avgs. over the past 1,5,15 min. intvls. 
+
+  load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
+  printf "%s" "$load_avg (1, 5, 15 min)" 
+} 
 
 # today: year month hour minute 24-hour timezone(abbr.)
 today=$(date +"%Y %B %e, %A, %T %Z")
