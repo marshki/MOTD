@@ -2,7 +2,7 @@
 # mjk 2018.09.28 
 
 # header array 
-HEADR=(Hostname Uptime "Last Login" "Load Averages" "Running Processes" "Memory Usage" "Disk Usage" "Time")
+HEADR=(HOSTNAME UPTIME "LAST LOGIN" "Load Averages" "Running Processes" "Memory Usage" "Disk Usage" "Time")
 
 dots(){ 
   # seq increments a period (".") 1-n times, where n is user defined   
@@ -26,11 +26,12 @@ time_up(){
   printf "%s" "$timeup" 
 } 
 
-
-# last login 
-
-last_login=$(last | awk 'NR==2'|tr -s ' ')
-
+last_login(){ 
+  # last login 
+  
+  last_log=$(last | awk 'NR==2'|tr -s ' ')
+  printf "%s" "$last_log"
+} 
 # load avgs. over the past 1,5,15 min. intvls. 
 load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
 
