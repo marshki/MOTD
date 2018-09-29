@@ -4,75 +4,41 @@
 # header array 
 HEADR=(HOSTNAME UPTIME "LAST LOGIN" "LOAD AVGS." "Running Processes" "Memory Usage" "Disk Usage" "Time")
 
+# seq increments a period (".") 1-n times, where n is user defined   
 dots(){ 
-  # seq increments a period (".") 1-n times, where n is user defined   
-  
   printf "%s" "$2"; 
   printf "%.0s." $( seq $(($1-${#2})) );
   echo; 
 }
 
-host_name(){
-  # fully-qualified domain name 
+# fully-qualified domain name 
+host=$(hostname -f)
   
-  host=$(hostname -f)
-  printf "%s" "$host (FQDN)"  
-}  
+# uptime: days hours:minutes 
+up_time=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
 
-time_up(){ 
-  # uptime: days hours:minutes 
-  
-  timeup=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
-  printf "%s" "$timeup" 
-} 
+# last login 
+last_log=$(last | awk 'NR==2'|tr -s ' ')
+ 
+# load avgs. over the past 1,5,15 min. intvls. 
+load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
+ 
+# today: year month hour minute 24-hour timezone(abbr.)
+tdy=$(date +"%Y %B %e, %A, %T %Z")
 
-last_login(){ 
-  # last login 
-  
-  last_log=$(last | awk 'NR==2'|tr -s ' ')
-  printf "%s" "$last_log"
-} 
+# running processes
+procs=$(ps ax | wc -l | tr -d " ")
+ 
+# memory stats: used unused 
+# works in BSD not Linux; need to generalize 
+mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
 
-load_averages(){ 
-  # load avgs. over the past 1,5,15 min. intvls. 
-
-  load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
-  printf "%s" "$load_avg (1, 5, 15 min)" 
-} 
-
-today(){ 
-  # today: year month hour minute 24-hour timezone(abbr.)
-
-  tdy=$(date +"%Y %B %e, %A, %T %Z")
-  printf "%s" "$tdy"
-} 
-
-processes(){ 
-  # running processes
-  
-  procs=$(ps ax | wc -l | tr -d " ")
-  printf "%s" "$procs (total)" 
-} 
-
-mem_info(){ 
-  # memory stats: used unused 
-  # works in BSD not Linux; need to generalize 
-
-  mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
-  printf "%s" "$mem (used unused)"
-
-} 
-
-disk_usage(){
-  # disk stats: size used avail. capacity in GBs
-
-  disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
-  printf "%s" "$disk_usg (size used avail capacity)"
-} 
+# disk stats: size used avail. capacity in GBs
+disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
 
 
 printf "%s" "
-  )      |${HEADR[0]}.........: `host_name`      
+  )      |${HEADR[0]}`dots 9`: ${host} (FQDN)        
  (__     |${HEADR[1]}...........: ${timeup}
  _  )_   |${HEADR[2]}.......: ${last_login} 
 (_)_(_)  |${HEADR[3]}....: ${load_avg} (1, 5, 15 min)  
