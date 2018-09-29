@@ -7,7 +7,7 @@ mac_addr(){
   mac=$(ifconfig en1 | awk '/ether/{print $2}')
   printf "%s\\n" "$mac"
 } 
-mad_addr 
+mac_addr 
 
 mac_addr(){
   # get MACADDR for primary  
