@@ -11,6 +11,19 @@ hr() {
   printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
 }
 
+maus(){
+  # ASCII mouse 
+
+printf '
+  )            
+ (__
+ _  )_
+(_)_(_)
+ (o o)
+==\o/==
+'
+}
+
 # fully-qualified domain name 
 host=$(hostname -f)
   
@@ -36,6 +49,7 @@ disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}')
 # today: year month hour minute 24-hour timezone(abbr.)
 tdy=$(date +"%Y %B %e, %A, %T %Z")
 
+maus
 printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
 printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
 printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
