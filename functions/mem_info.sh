@@ -10,3 +10,14 @@ mem_info(){
 } 
 
 mem_info
+
+mem_info(){
+
+  # memory stats: used unused 
+  # works in BSD not Linux; need to generalize 
+  
+  mem=$(free -g |awk 'FNR==2 {print $3, $4}')
+  printf "%s\\n" "$mem (used unused)"
+} 
+
+mem_info
