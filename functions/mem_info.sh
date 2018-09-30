@@ -2,7 +2,7 @@
 
 mem_info(){
 
-  # memory stats: used unused 
+  # memory stats: used unused (CHECK ME!) 
   # works in BSD not Linux; need to generalize 
   
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
