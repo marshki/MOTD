@@ -45,5 +45,6 @@ printf "%s" "
 ==\o/==  |${HEADR[5]}`dots 5`: ${mem} (used unused) 
          |${HEADR[6]}`dots 7`: ${disk_usg} (size used avail capacity) 
          |${HEADR[7]}:`dots 11`: ${tdy}  
+
 " 
 
