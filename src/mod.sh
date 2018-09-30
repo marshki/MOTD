@@ -36,13 +36,13 @@ disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}')
 # today: year month hour minute 24-hour timezone(abbr.)
 tdy=$(date +"%Y %B %e, %A, %T %Z")
 
-printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host}"
+printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
 printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
 printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
-printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg}"
-printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs}"
-printf -- '%.30s: %s\n' "| ${HEADR[5]}$(hr 30 .)" "${mem}"
-printf -- '%.30s: %s\n' "| ${HEADR[6]}$(hr 30 .)" "${disk_usg}"
+printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
+printf -- '%.30s: %s\n' "| ${HEADR[5]}$(hr 30 .)" "${mem} (used free)"
+printf -- '%.30s: %s\n' "| ${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
 printf -- '%.30s: %s\n' "| ${HEADR[7]}$(hr 30 .)" "${tdy}"
 
 #printf "%s" "
