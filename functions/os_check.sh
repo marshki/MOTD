@@ -51,8 +51,3 @@ Linux)
   ;;
 esac
 
-#os_check(){
-  # check if OS is LINUX or UNIX 
-  # uname -s 
-  # Need to check against this 
-#} 
