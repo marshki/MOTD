@@ -13,6 +13,7 @@ hr() {
 
 maus(){
   # ASCII mouse 
+  # NEED TO CENTER; ADD DIALOG
 
 printf '
   )            
@@ -49,14 +50,59 @@ disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}')
 # today: year month hour minute 24-hour timezone(abbr.)
 tdy=$(date +"%Y %B %e, %A, %T %Z")
 
-maus
-printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
-printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
-printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
-printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
-printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
-printf -- '%.30s: %s\n' "| ${HEADR[5]}$(hr 30 .)" "${mem} (used unused)"
-printf -- '%.30s: %s\n' "| ${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
-printf -- '%.30s: %s\n' "| ${HEADR[7]}$(hr 30 .)" "${tdy}"
+
+
+
+
+case $(uname -s) in
+
+Darwin)
+  # MAC address 
+  mac_osx=$(ifconfig en1 | awk '/ether/{print $2}')
+
+  # IP address 
+  eth0=$(ipconfig getifaddr en0)
+
+  # Memory free/used
+  mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
+
+  maus
+  printf "%s\\n" "Darwin"
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
+  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
+  printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
+  printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+  printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
+  printf -- '%.30s: %s\n' "| ${HEADR[5]}$(hr 30 .)" "${mem} (used unused)"
+  printf -- '%.30s: %s\n' "| ${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
+  printf -- '%.30s: %s\n' "| ${HEADR[7]}$(hr 30 .)" "${tdy}"
+  ;;
+
+Linux)
+  # MAC ADDRESS
+  mac=$(cat /sys/class/net/eth0/address)
+  
+  maus
+  printf "%s\\n" "Linux" 
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
+  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${mac}" 
+  ;;
+
+*)
+  printf "%s\\n" "He can't handle your speed, $(uname -m)"
+  ;;
+esac
+
+
+
+#maus
+#printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
+#printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
+#printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
+#printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+#printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
+#printf -- '%.30s: %s\n' "| ${HEADR[5]}$(hr 30 .)" "${mem} (used unused)"
+#printf -- '%.30s: %s\n' "| ${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
+#printf -- '%.30s: %s\n' "| ${HEADR[7]}$(hr 30 .)" "${tdy}"
 
 
