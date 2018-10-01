@@ -40,10 +40,6 @@ load_avg=$(uptime | awk -F'[a-z]:' '{print $2}')
 # running processes
 procs=$(ps ax | wc -l | tr -d " ")
  
-# memory stats: used unused 
-# works in BSD not Linux; need to generalize 
-mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
-
 # disk stats: size used avail. capacity in GBs
 disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
 
