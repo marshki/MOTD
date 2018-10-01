@@ -40,7 +40,6 @@ Darwin)
 Linux)
   printf "%s\\n" "Linux" 
   maus
-  printf "%s\\n" "Darwin"
   printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
   printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${mac}"
   ;;
