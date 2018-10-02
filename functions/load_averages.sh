@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 
 load_averages(){ 
   # load avgs. over the past 1,5,15 min. intvls.
