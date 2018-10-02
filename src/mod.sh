@@ -28,13 +28,6 @@ hr(){
   printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
 }
 
-vr(){
- # shellcheck disable=SC2183
- # print stuff
- 
-  printf -- '%.30s: %s\n' 
-} 
-
 # fully-qualified domain name 
 host_name=$(hostname -f)
 
