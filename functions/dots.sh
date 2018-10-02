@@ -1,4 +1,5 @@
 #!/usr/bin/env bash 
+# automate formatting
 
 HEADR=(HOSTNAME TODAY) 
 
