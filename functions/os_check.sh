@@ -23,8 +23,15 @@ printf '
 '
 }
 
+host_name(){
+  # fully-qualified domain name 
+  
+  host=$(hostname -f)
+  printf "%s\\n" "$host (FQDN)"  
+}
+
 # fully-qualified domain name 
-host=$(hostname -f)
+#host=$(hostname -f)
 
   
 case $(uname -s) in
@@ -34,7 +41,7 @@ Darwin)
 
   maus
   printf "%s\\n" "Darwin"
-  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)" 
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` #"${host} (FQDN)" 
   printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${mac_osx}"
   ;;
 Linux)
@@ -43,7 +50,7 @@ Linux)
   
   maus
   printf "%s\\n" "Linux" 
-  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` #"${host} (FQDN)"
   printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${mac}" 
   ;;
 *)
