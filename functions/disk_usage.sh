@@ -1,5 +1,4 @@
-#!/bin/bash 
-
+#!/usr/bin/env bash 
 
 disk_usage(){
   # disk stats: size used avail. capacity in GBs
