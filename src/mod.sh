@@ -91,6 +91,6 @@ Linux)
   ;;
 
 *)
-  printf "%s\\n" "He can't handle your speed, $(uname -m)"
+  printf "%s\\n" "He can't handle your speed, $(uname -s)"
   ;;
 esac
