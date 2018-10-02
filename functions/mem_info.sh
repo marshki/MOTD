@@ -1,23 +1,25 @@
-#!/bin/bash 
-
-mem_info(){
-
-  # memory stats: used unused (CHECK ME!) 
-  # works in BSD not Linux; need to generalize 
+#!/usr/bin/env bash 
   
+case $(uname -s) in
+
+Darwin)
+  
+  # memory stats: used unused
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
-  printf "%s\\n" "$mem (used unused)" 
-} 
-
-mem_info
-
-mem_info(){
-
-  # memory stats: used unused 
-  # works in BSD not Linux; need to generalize 
   
-  mem=$(free |awk 'FNR==2 {print $3, $4}')
-  printf "%s\\n" "$mem (used unused)"
-} 
+  printf "%s\\n" "$mem (used unused)" 
+  ;;
 
-mem_info
+Linux)
+  
+  # memory stats: used unused 
+  mem=$(free |awk 'FNR==2 {print $3, $4}')
+  
+  printf "%s\\n" "$mem (used unused)"
+  ;;
+
+*)
+  printf "%s\\n" "He can't handle your speed, $(uname -s)"
+  ;;
+esac
+
