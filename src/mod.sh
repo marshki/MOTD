@@ -1,13 +1,15 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 # mjk 2018.09.28 
 
-# header array 
+#### HEADER ARRAY ####
+
 HEADR=(HOSTNAME UPTIME "LAST LOGIN" "LOAD AVGS." "RUNNING PROCESSES" "MEMORY USAGE" "DISK USAGE" "TODAY")
+
+#### ASCII ART ####
 
 maus(){
   # ASCII mouse 
-  # NEED TO CENTER; ADD DIALOG
-
+  # TODO: CENTER ME; ADD HEADING
 printf '
   )            
  (__
@@ -18,26 +20,26 @@ printf '
 '
 }
 
-hr() {
+#### 
+hr(){
   # shellcheck disable=SC2183
   # print horizontal line of characters 
 
   printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
 }
 
-host_name(){
-  # fully-qualified domain name 
-  
-  host=$(hostname -f)
-  printf "%s" "$host"  
-}
+vr(){
+ # shellcheck disable=SC2183
+ # print stuff
+ 
+  printf -- '%.30s: %s\n' 
+} 
 
-time_up(){ 
-  # uptime: days hours:minutes 
-  
-  timeup=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
-  printf "%s" "$timeup" 
-}  
+# fully-qualified domain name 
+host_name=$(hostname -f)
+
+# uptime: days hours:minutes 
+time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
 
 # last login 
 last_log=$(last | awk 'NR==2'|tr -s ' ')
@@ -54,7 +56,6 @@ disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}')
 # today: year month hour minute 24-hour timezone(abbr.)
 tdy=$(date +"%Y %B %e, %A, %T %Z")
 
-
 case $(uname -s) in
 
 Darwin)
@@ -67,10 +68,10 @@ Darwin)
   # Memory free/used
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
 
-  maus
-  printf "%s\\n" "Darwin"
-  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` 
-  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" `time_up`
+  #maus
+  
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host_name}" 
+  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${time_up}" 
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
   printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
   printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
@@ -86,10 +87,11 @@ Linux)
   # Memory free/used
   mem=$(free |awk 'FNR==2 {print $3, $4}') 
 
-  maus
+  #maus
+
   printf "%s\\n" "Linux" 
-  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` 
-  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" `time_up`
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host_name}" 
+  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${time_up}" 
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
   printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
   printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
