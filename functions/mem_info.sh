@@ -1,4 +1,5 @@
 #!/usr/bin/env bash 
+# Check OS; return free and used memory based on result 
   
 case $(uname -s) in
 
@@ -22,4 +23,3 @@ Linux)
   printf "%s\\n" "He can't handle your speed, $(uname -s)"
   ;;
 esac
-
