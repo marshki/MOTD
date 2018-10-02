@@ -3,13 +3,14 @@
 
 #### HEADER ARRAY ####
 
-HEADR=(HOSTNAME UPTIME "LAST LOGIN" "LOAD AVGS." "RUNNING PROCESSES" "MEMORY USAGE" "DISK USAGE" "TODAY")
+HEADR=("HOSTNAME(FQDN)" TODAY "LAST LOGIN" UPTIME "LOAD AVGS." "RUNNING PROCESSES" "MEMORY USAGE" "DISK USAGE")
 
 #### ASCII ART ####
 
 maus(){
   # ASCII mouse 
   # TODO: CENTER ME; ADD HEADING
+
 printf '
   )            
  (__
@@ -21,6 +22,7 @@ printf '
 }
 
 #### 
+
 hr(){
   # shellcheck disable=SC2183
   # print horizontal line of characters 
@@ -31,11 +33,15 @@ hr(){
 # fully-qualified domain name 
 host_name=$(hostname -f)
 
-# uptime: days hours:minutes 
-time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
+# today: year month hour minute 24-hour timezone(abbr.)
+tdy=$(date +"%Y %B %e, %A, %T %Z")
 
 # last login 
 last_log=$(last | awk 'NR==2'|tr -s ' ')
+
+# uptime: days hours:minutes 
+time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
+
  
 # load avgs. over the past 1,5,15 min. intvls. 
 load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
@@ -46,8 +52,6 @@ procs=$(ps ax | wc -l | tr -d " ")
 # disk stats: size used avail. capacity in GBs
 disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
 
-# today: year month hour minute 24-hour timezone(abbr.)
-tdy=$(date +"%Y %B %e, %A, %T %Z")
 
 case $(uname -s) in
 
@@ -64,13 +68,14 @@ Darwin)
   #maus
   
   printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host_name}" 
-  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${time_up}" 
+  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${tdy}" 
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
-  printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
-  printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
-  printf -- '%.30s: %s\n' "| ${HEADR[5]}$(hr 30 .)" "${mem} (used unused)"
-  printf -- '%.30s: %s\n' "| ${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
-  printf -- '%.30s: %s\n' "| ${HEADR[7]}$(hr 30 .)" "${tdy}"
+  printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${time_up}"
+  #printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+  #printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
+  #printf -- '%.30s: %s\n' "| ${HEADR[5]}$(hr 30 .)" "${mem} (used unused)"
+  #printf -- '%.30s: %s\n' "| ${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
+  #printf -- '%.30s: %s\n' "| ${HEADR[7]}$(hr 30 .)" "${tdy}"
   ;;
 
 Linux)
