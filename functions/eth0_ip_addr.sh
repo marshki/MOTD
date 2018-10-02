@@ -1,4 +1,5 @@
 #!/usr/bin/env bash 
+# Check OS; return primary IP 
   
 case $(uname -s) in
 Darwin)
