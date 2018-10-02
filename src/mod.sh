@@ -4,13 +4,6 @@
 # header array 
 HEADR=(HOSTNAME UPTIME "LAST LOGIN" "LOAD AVGS." "RUNNING PROCESSES" "MEMORY USAGE" "DISK USAGE" "TODAY")
 
-hr() {
-  # shellcheck disable=SC2183
-  # print horizontal line of characters 
-
-  printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
-}
-
 maus(){
   # ASCII mouse 
   # NEED TO CENTER; ADD DIALOG
@@ -25,15 +18,26 @@ printf '
 '
 }
 
+hr() {
+  # shellcheck disable=SC2183
+  # print horizontal line of characters 
+
+  printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
+}
+
 host_name(){
   # fully-qualified domain name 
   
   host=$(hostname -f)
   printf "%s" "$host"  
 }
+
+time_up(){ 
+  # uptime: days hours:minutes 
   
-# uptime: days hours:minutes 
-timeup=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
+  timeup=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
+  printf "%s" "$timeup" 
+}  
 
 # last login 
 last_log=$(last | awk 'NR==2'|tr -s ' ')
@@ -66,7 +70,7 @@ Darwin)
   maus
   printf "%s\\n" "Darwin"
   printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` 
-  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
+  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" `time_up`
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
   printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
   printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
@@ -85,7 +89,7 @@ Linux)
   maus
   printf "%s\\n" "Linux" 
   printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` 
-  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
+  printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" `time_up`
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
   printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
   printf -- '%.30s: %s\n' "| ${HEADR[4]}$(hr 30 .)" "${procs} (total)"
