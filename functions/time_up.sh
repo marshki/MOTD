@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash  
 
 time_up(){ 
   # uptime: days hours:minutes 
