@@ -25,8 +25,12 @@ printf '
 '
 }
 
-# fully-qualified domain name 
-host=$(hostname -f)
+host_name(){
+  # fully-qualified domain name 
+  
+  host=$(hostname -f)
+  printf "%s" "$host"  
+}
   
 # uptime: days hours:minutes 
 timeup=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
@@ -61,7 +65,7 @@ Darwin)
 
   maus
   printf "%s\\n" "Darwin"
-  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` 
   printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
   printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
@@ -80,7 +84,7 @@ Linux)
 
   maus
   printf "%s\\n" "Linux" 
-  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host} (FQDN)"
+  printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" `host_name` 
   printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${timeup}"
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
   printf -- '%.30s: %s\n' "| ${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
