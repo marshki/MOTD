@@ -1,22 +1,25 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
+  
+case $(uname -s) in
+Darwin)
+  
+  # get IP address for eth0 (primary) in OS X 
+  eth0=$(ipconfig getifaddr en0) 
 
-eth0_ip(){
-  # get IP address for eth0 (primary)
-  # OS X 
- 
-  eth0=$(ipconfig getifaddr en0)
   printf "%s\\n" "$eth0"
-} 
+  ;;
 
+Linux)
 
-eth0_ip 
-
-eth0_ip(){
-  # get IP address for eth0 (primary)
-  # Linux 
- 
+  # get IP address for eth0 (primary) in Linux 
   eth0=$(ip route get 1 | awk '{print $NF;exit}')
-  printf "%s\\n" "$eth0"
-} 
 
-eth0_ip
+  printf "%s\\n" "$eth0"
+
+  ;;
+
+*)
+  printf "%s\\n" "He can't handle your speed, $(uname -s)"
+  ;;
+esac
+
