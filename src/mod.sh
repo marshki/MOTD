@@ -88,7 +88,7 @@ Linux)
   eth0=$(ip route get 1 | awk '{print $NF;exit}')
  
   # MAC ADDRESS
-  mac=$(cat /sys/class/net/eth0/address)
+  macaddr=$(cat /sys/class/net/eth0/address)
  
   
   #maus
