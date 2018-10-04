@@ -5,31 +5,6 @@
 
 HEADR=("HOSTNAME(FQDN)" TODAY "LAST LOGIN" UPTIME "LOAD AVGS." "RUNNING PROCESSES" "MEMORY USAGE" "DISK USAGE" "IP ADDRESS" "MAC ADDRESS")
 
-#### ASCII ART ####
-
-maus(){
-  # ASCII mouse 
-  # TODO: CENTER ME; ADD HEADING
-
-printf '
-  )            
- (__
- _  )_
-(_)_(_)
- (o o)
-==\o/==
-'
-}
-
-#### #### 
-
-hr(){
-  # shellcheck disable=SC2183
-  # print horizontal line of characters 
-
-  printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
-}
-
 #### ####
 
 # fully-qualified domain name 
@@ -53,6 +28,30 @@ procs=$(ps ax | wc -l | tr -d " ")
 # disk stats: size used avail. capacity in GBs
 disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
 
+#### ASCII ART ####
+maus() {
+  # ASCII mouse w/text box, centered 
+
+printf '
+                             )            
+                            (__        ---------------
+                            _  )_     < PSYCH//CNS TEK >
+                           (_)_(_)     --------------- 
+                            (o o)  _ _/
+                           ==\o/== 
+'
+} 
+
+#### #### 
+
+hr(){
+  # shellcheck disable=SC2183
+  # print horizontal line of characters 
+
+  printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
+}
+
+#### Meat & Potatoes ####
 
 case $(uname -s) in
 
@@ -66,7 +65,7 @@ Darwin)
   # MAC address 
   macaddr=$(ifconfig en1 | awk '/ether/{print $2}')
   
-  #maus
+  maus
   
   printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host_name}" 
   printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${tdy}" 
@@ -90,8 +89,8 @@ Linux)
   # MAC ADDRESS
   macaddr=$(cat /sys/class/net/eth0/address)
  
-  
-  #maus
+  maus
+
   printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host_name}" 
   printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${tdy}" 
   printf -- '%.30s: %s\n' "| ${HEADR[2]}$(hr 30 .)" "${last_log}"
