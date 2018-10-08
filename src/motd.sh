@@ -1,10 +1,7 @@
 #!/usr/bin/env bash 
 # mjk 2018.09.28 
 
-# Message of the day (MOD) for BSD & Linux
-# 
-
-
+# Message of the day (MOTD) for BSD & Linux
 
 #### HEADER ARRAY ####
 
