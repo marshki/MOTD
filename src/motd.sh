@@ -1,13 +1,12 @@
 #!/usr/bin/env bash 
 # mjk 2018.09.28 
-
 # Message of the day (MOTD) for BSD & Linux
 
 #### HEADER ARRAY ####
 
 HEADR=("HOSTNAME(FQDN)" TODAY "LAST LOGIN" UPTIME "LOAD AVGS." "RUNNING PROCESSES" "MEMORY USAGE" "DISK USAGE" "IP ADDRESS" "MAC ADDRESS")
 
-#### ####
+#### VARIABLES ####
 
 # fully-qualified domain name 
 host_name=$(hostname -f)
@@ -30,7 +29,8 @@ procs=$(ps ax | wc -l | tr -d " ")
 # disk stats: size used avail. capacity in GBs
 disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
 
-#### ASCII ART ####
+#### FUNCTIONS ####
+
 maus() {
   # ASCII mouse w/text box, centered 
 
@@ -43,8 +43,6 @@ printf '
                            ==\o/== 
 '
 } 
-
-#### #### 
 
 hr(){
   # shellcheck disable=SC2183
@@ -78,7 +76,7 @@ Darwin)
   printf -- '%.30s: %s\n' "${HEADR[6]}$(hr 30 .)" "${mem} (used unused)"
   printf -- '%.30s: %s\n' "${HEADR[7]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
   printf -- '%.30s: %s\n' "${HEADR[8]}$(hr 30 .)" "${eth0}" 
-  printf -- '%.30s: %s\n' "${HEADR[9]}$(hr 30 .)" "${macaddr}" 
+  printf -- '%.30s: %s\n' "${HEADR[9]}$(hr 30 .)" "${macaddr}"   
 ;;
 
 Linux)
@@ -103,10 +101,8 @@ Linux)
   printf -- '%.30s: %s\n' "${HEADR[7]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
   printf -- '%.30s: %s\n' "${HEADR[8]}$(hr 30 .)" "${eth0}" 
   printf -- '%.30s: %s\n' "${HEADR[9]}$(hr 30 .)" "${macaddr}" 
-
-   ;;
+;;
 
 *)
   printf "%s\\n" "He can't handle your speed, $(uname -s)"
   ;;
-esac
