@@ -1,4 +1,5 @@
 #!/usr/bin/env bash 
+# detect system architecture, then act
   
 case $(uname -s) in
 Darwin)
