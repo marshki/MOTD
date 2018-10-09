@@ -1,18 +1,13 @@
 #!/usr/bin/env bash 
-# automate formatting
-
-HEADR=(HOSTNAME TODAY) 
-
-host=$(hostname -f)
-tdy=$(date +"%Y %B %e, %A, %T %Z")
+# print horizontal line of x characters y times 
 
 hr() {
   # shellcheck disable=SC2183
-  # print horizontal line of characters 
+  # print (#) to column width
+  # print (.) to column position 30
 
   printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
 }
 
-printf -- '%.30s: %s\n' "| ${HEADR[0]}$(hr 30 .)" "${host}"
-printf -- '%.30s: %s\n' "| ${HEADR[1]}$(hr 30 .)" "${tdy}"
+printf -- '%.30s: %s\n' "| $(hr 30 .)" 
 
