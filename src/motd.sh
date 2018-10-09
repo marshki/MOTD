@@ -19,10 +19,10 @@ tdy=$(date +"%Y %B %e, %A, %T %Z")
 last_log=$(last | awk 'NR==2'|tr -s ' ')
 
 # uptime: days hours:minutes 
-time_up=$(uptime |awk '{ sub(/^.*: /, ""); print; }') 
+time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}') 
 
 # load avgs. over the past 1,5,15 min. intvls. 
-load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
+load_avg=$(uptime |awk '{ sub(/^.*: /, ""); print; }') 
  
 # running processes
 procs=$(ps ax | wc -l | tr -d " ")
