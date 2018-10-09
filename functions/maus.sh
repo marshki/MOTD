@@ -1,7 +1,7 @@
 #!/bin/bash 
+# ASCII mouse with logo
 
 maus() {
-  # ASCII mouse 
 
 printf '
                       )            
