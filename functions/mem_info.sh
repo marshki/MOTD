@@ -6,6 +6,9 @@ case $(uname -s) in
 Darwin)
   
   # memory stats: used unused
+  # top sample once, delay 0 secs
+  # awk regex, return columns 2,6
+
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
   
   printf "%s\\n" "$mem (used unused)" 
@@ -14,6 +17,8 @@ Darwin)
 Linux)
   
   # memory stats: used unused 
+  # free, then awk second row, print columns 3,4
+
   mem=$(free |awk 'FNR==2 {print $3, $4}')
   
   printf "%s\\n" "$mem (used unused)"
