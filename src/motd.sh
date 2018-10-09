@@ -19,8 +19,8 @@ tdy=$(date +"%Y %B %e, %A, %T %Z")
 last_log=$(last | awk 'NR==2'|tr -s ' ')
 
 # uptime: days hours:minutes 
-time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
- 
+time_up=$(uptime |awk '{ sub(/^.*: /, ""); print; }') 
+
 # load avgs. over the past 1,5,15 min. intvls. 
 load_avg=$(uptime | awk -F'[a-z]:' '{print $2}') 
  
