@@ -13,6 +13,7 @@ Darwin)
 Linux)
 
   # get IP address for eth0 (primary) in Linux 
+  # ip add for eth0, then print last column
   eth0=$(ip route get 1 | awk '{print $NF;exit}')
 
   printf "%s\\n" "$eth0"
