@@ -9,6 +9,10 @@ Drop-in file for a message-of-the day, written in Bash. Tested to run on Linux (
 
 ## Getting Started 
 
+In CentOS: 
+In Debian: 
+In Ubuntu: 
+
 ## TODO 
 
 ## History 
