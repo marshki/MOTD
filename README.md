@@ -5,4 +5,14 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-Drop-in file for a message-of-the day, written in Bash. Tested to run on Linux and OS X.  
+Drop-in file for a message-of-the day, written in Bash. Tested to run on Linux (CentOS, Debian, Ubuntu) and currently-supported versions of OS X. 
+
+## Getting Started 
+
+## TODO 
+
+## History 
+v.0.1 2018092
+
+## License 
+[LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE). 
