@@ -88,6 +88,8 @@ Linux)
  
   # MAC ADDRESS
   macaddr=$(cat /sys/class/net/eth0/address)
+  # macaddr=$(ifconfig -a | grep -Po 'HWaddr \K.*$') 
+
  
   maus
 
