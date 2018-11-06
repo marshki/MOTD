@@ -15,7 +15,7 @@ host_name=$(hostname -f)
 # tdy=$(date +"%Y %B %e, %A, %T %Z")
 
 # last login 
-last_log=$(last | awk 'NR==2'|tr -s ' ')
+last_log=$(last | awk 'NR==1'|tr -s ' ')
 
 # uptime: days hours:minutes 
 time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}') 
