@@ -87,8 +87,8 @@ Linux)
   eth0=$(ip route get 1 | awk '{print $NF;exit}')
  
   # MAC ADDRESS
-  macaddr=$(cat /sys/class/net/eth0/address)
-  # macaddr=$(ifconfig -a | grep -Po 'HWaddr \K.*$') 
+  #macaddr=$(cat /sys/class/net/eth0/address)
+  macaddr=$(ifconfig -a | grep --perl-regexp --only-matching 'HWaddr \K.*$') 
 
  
   maus
