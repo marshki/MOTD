@@ -20,6 +20,8 @@ Linux)
   # free, then awk second row, print columns 3,4
 
   mem=$(free |awk 'FNR==2 {print $3, $4}')
+
+  #mem=$(free -m |awk 'FNR==2 {print $3, $4}') 
   
   printf "%s\\n" "$mem (used unused)"
   ;;
