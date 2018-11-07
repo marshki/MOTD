@@ -9,7 +9,8 @@ Drop-in file for a message-of-the day, written in Bash. Tested to run on Linux (
 
 ## Getting Started 
 
-In CentOS: As root, place `motd.sh` in: `/etc/profile.d` and set permissions on the file: `chmod -v 755 /etc/profile.d/motd.sh`  
+In CentOS: as root, place `motd.sh` in: `/etc/profile.d` 
+and set permissions on the file: `chmod -v 755 /etc/profile.d/motd.sh`  
 
 In Debian: 
 
