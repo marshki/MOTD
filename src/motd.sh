@@ -11,9 +11,6 @@ HEADR=("HOSTNAME(FQDN)" "LAST LOGIN" UPTIME "LOAD AVGS." "RUNNING PROCESSES" "ME
 # fully-qualified domain name 
 host_name=$(hostname -f)
 
-# today: year month hour minute 24-hour timezone(abbr.)
-# tdy=$(date +"%Y %B %e, %A, %T %Z")
-
 # last login 
 last_log=$(last | awk 'NR==1'|tr -s ' ')
 
@@ -89,7 +86,6 @@ Linux)
   # MAC ADDRESS
   #macaddr=$(cat /sys/class/net/eth0/address)
   macaddr=$(ifconfig -a | grep --perl-regexp --only-matching 'HWaddr \K.*$') 
-
  
   maus
 
