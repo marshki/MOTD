@@ -5,10 +5,10 @@ case $(uname -s) in
 Darwin)
 
   # get MACADDR for primary in OS X  
-  # get mac addr for en1, 
+  # get mac addr for en0, 
   # then regex for ether, print 2nd column
 
-  mac=$(ifconfig en1 | awk '/ether/{print $2}')
+  mac=$(ifconfig en0 | awk '/ether/{print $2}')
 
   printf "%s\\n" "$mac"
   ;;
@@ -16,8 +16,10 @@ Darwin)
 Linux)
   
   # get MACADDR for primary in Linux  
+  # probe all in ifconfig, 
+  # grep for 1st match, then perl regular expressions to print content after HWaddr string 
 
-  mac=$(cat /sys/class/net/eth0/address)
+  mac=$(ifconfig -a | grep -m1 --perl-regexp --only-matching 'HWaddr \K.*$)  
   
   printf "%s\\n" "$mac"
   ;;
