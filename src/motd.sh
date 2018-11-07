@@ -85,7 +85,7 @@ Linux)
  
   # MAC ADDRESS
   #macaddr=$(cat /sys/class/net/eth0/address)
-  macaddr=$(ifconfig -a | grep --perl-regexp --only-matching 'HWaddr \K.*$') 
+  macaddr=$(ifconfig -a | grep --max-count=1 --perl-regexp --only-matching 'HWaddr \K.*$') 
  
   maus
 
