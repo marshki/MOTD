@@ -61,7 +61,7 @@ Darwin)
   eth0=$(ipconfig getifaddr en0)
 
   # MAC address 
-  macaddr=$(ifconfig en1 | awk '/ether/{print $2}')
+  macaddr=$(ifconfig en0 | awk '/ether/{print $2}')
   
   maus
   
