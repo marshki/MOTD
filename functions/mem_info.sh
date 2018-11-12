@@ -21,7 +21,10 @@ Linux)
 
   mem=$(free |awk 'FNR==2 {print $3, $4}')
 
-  #mem=$(free -m |awk 'FNR==2 {print $3, $4}') 
+  #mem=$(free -m |awk 'FNR==2 {print $3, $4}')
+
+  #-->work on this, need to print the proper row and columns <<- 
+  #top -n 1 -d 0 |awk '/Mem/ {print $6,$8}' |head -1
   
   printf "%s\\n" "$mem (used unused)"
   ;;
