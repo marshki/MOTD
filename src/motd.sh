@@ -79,7 +79,7 @@ Darwin)
 Linux)
   # Memory free/used
   # --> can we use top? <--
-  mem=$(free |awk 'FNR==2 {print $3, $4}') 
+  mem=$(free -g |awk 'FNR==2 {print $3, $4}') 
  
   # get IP address for eth0 (primary) 
   eth0=$(ip route get 1 | awk '{print $NF;exit}')
