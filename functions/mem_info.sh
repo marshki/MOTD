@@ -19,12 +19,10 @@ Linux)
   # memory stats: used unused 
   # free, then awk second row, print columns 3,4
 
-  mem=$(free |awk 'FNR==2 {print $3, $4}')
-
-  #mem=$(free -m |awk 'FNR==2 {print $3, $4}')
+  mem=$(free -g |awk 'FNR==2 {print $3, $4}')
 
   #-->work on this, need to print the proper row and columns <<- 
-  #top -n 1 -d 0 |awk '/Mem/ {print $6,$8}' |head -1
+  #mem=$(top -n 1 -d 0 |awk '/Mem/ {print $8, $6}' |head -1) 
   
   printf "%s\\n" "$mem (used unused)"
   ;;
