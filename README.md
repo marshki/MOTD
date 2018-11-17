@@ -9,15 +9,15 @@ Drop-in file for a message-of-the day, written in Bash. Tested to run on Linux (
 
 ## Getting Started 
 
-In CentOS 7: place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d` 
+**In CentOS 7:** place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d` 
 and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh`  
 
-In Debian 8: place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d`
+**In Debian 8:** place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d`
 and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh` 
 
-In OS X: 
+**In OS X:** 
 
-In Ubuntu 16.04 LTS: you may want to disable the "Message-of-the-Day" files in: `/etc/update-motd.s`. To view these messages: 
+**In Ubuntu 16.04 LTS:** you may want to disable the "Message-of-the-Day" files in: `/etc/update-motd.s`. To view these messages: 
 `sudo run-parts /etc/update-motd.d`. To disable them: `sudo chmod -v 644 /etc/update-motd.d/*`. 
 (You can revert these changes with: `sudo chmod -v 744 /etc/update-motd.d/*` if needed).
 
