@@ -8,6 +8,7 @@ Darwin)
   # memory stats: used unused
   # top sample once, delay 0 secs
   # awk regex, return columns 2,6
+  # --> KiB is returned in truncated format, which can throw off results <--
 
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
   
