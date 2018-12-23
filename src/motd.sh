@@ -1,6 +1,9 @@
 #!/usr/bin/env bash 
 # mjk 2018.09.28 
-# Message of the day (MOTD) for BSD & Linux
+
+# Message of the day (MOTD) for interactive shells in BSD & Linux
+# Open to all, but tailored to rigs in NYU's departments of Neural Science, Psychology, 
+# and the Center for Brain Imaging.   
 
 #### HEADER ARRAY ####
 
@@ -54,7 +57,7 @@ hr(){
 case $(uname -s) in
 
 Darwin)
-  # suppress last login in OS X by creating .hushlogin file  
+  # suppress last login by creating .hushlogin file  
   touch ~/.hushlogin
 
   # Memory free/used
