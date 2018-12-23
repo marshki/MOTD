@@ -54,6 +54,9 @@ hr(){
 case $(uname -s) in
 
 Darwin)
+  # suppress last login in OS X by creating .hushlogin file  
+  touch ~/.hushlogin
+
   # Memory free/used
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
 
