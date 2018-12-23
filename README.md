@@ -12,7 +12,7 @@ and [The Center for Brain Imaging](http://as.nyu.edu/cbi.html).
 
 Tested to run on Linux (CentOS, Debian, Ubuntu) and currently-supported versions of OS X. 
 
-![Alt text] (https://github.com/marshki/MOTD/tree/master/docs/motd.png "motd")
+![Alt text](https://github.com/marshki/MOTD/tree/master/docs/motd.png "motd")
 
 ## Getting Started 
 
