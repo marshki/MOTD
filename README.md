@@ -5,7 +5,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-Drop-in file for a message-of-the day in an interactive shell, written in Bash. 
+Drop-in Bash script for a [message-of-the day](https://en.wikipedia.org/wiki/Motd_(Unix)) in an interactive shell. 
 
 Open to all, but tailored to rigs in NYU's departments of Neural Science, and Psychology. 
 
@@ -21,7 +21,7 @@ and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh`
 
 **In OS X:** place `motd.sh` in: `.bash_profile`, e.g.: `cat motd.sh > ~/.bash_profile`. 
 
-**In Ubuntu 16.04 LTS:** you may want to disable the "Message-of-the-Day" files in: `/etc/update-motd.s`. To view these messages: 
+**In Ubuntu 16.04:** you may want to disable the "Message-of-the-Day" files in: `/etc/update-motd.s`. To view these messages: 
 `sudo run-parts /etc/update-motd.d`. To disable them: `sudo chmod -v 644 /etc/update-motd.d/*`. 
 (You can revert these changes with: `sudo chmod -v 744 /etc/update-motd.d/*` if needed).
 
