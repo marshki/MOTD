@@ -15,7 +15,7 @@ and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh`
 **In Debian 8:** place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d`
 and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh` 
 
-**In OS X:** 
+**In OS X:** place `motd.sh` in: `.bash_profile`, e.g.: `cat motd.sh > ~/.bash_profile`. 
 
 **In Ubuntu 16.04 LTS:** you may want to disable the "Message-of-the-Day" files in: `/etc/update-motd.s`. To view these messages: 
 `sudo run-parts /etc/update-motd.d`. To disable them: `sudo chmod -v 644 /etc/update-motd.d/*`. 
