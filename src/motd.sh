@@ -2,8 +2,7 @@
 # mjk 2018.09.28 
 
 # Message of the day (MOTD) for interactive shells in BSD & Linux
-# Open to all, but tailored to rigs in NYU's departments of Neural Science, Psychology, 
-# and the Center for Brain Imaging.   
+# Open to all, but tailored to rigs in NYU's departments of Neural Science, and Psychology. 
 
 #### HEADER ARRAY ####
 
