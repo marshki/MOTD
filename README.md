@@ -12,6 +12,8 @@ and [The Center for Brain Imaging](http://as.nyu.edu/cbi.html).
 
 Tested to run on Linux (CentOS, Debian, Ubuntu) and currently-supported versions of OS X. 
 
+![ALT text](https://github.com/marshki/MOTD/blob/master/docs/motd.png "motd")
+
 ## Getting Started 
 
 **In CentOS 7:** place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d` 
