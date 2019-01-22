@@ -27,6 +27,8 @@ confirm_changes() {
   fi
 } 
 
+# Rename each file beginning with "find_string*" and replace it with "replace_string" using mv.
+
 bulk_rename() {
   printf "%s\n" "Renaming files..."
  
