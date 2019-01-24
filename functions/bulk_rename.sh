@@ -1,8 +1,11 @@
 #!/bin/bash 
 # mjk235 [at] nyu [dot] edu
-# Bulk rename of files that start with: `x` 
 
-# Read user input & assign to: `find_string`. 
+# Iterate through files, replacing user designated string, e.g.:  
+# orange_white_blue00.txt --> red_white_blue00.txt  
+# orange_white_blue00.csv --> red_white_blue00.csv
+# orange_white_blue01.txt --> red_white_blue01.txt 
+# orange_white_blue01.csv --> red_white_blue01.txt 
 
 input_to_find() {
   read -p "Enter the string to find: " find_string 
@@ -29,7 +32,7 @@ preview_changes() {
 confirm_changes() { 
   read -p "Confirm change from:'$find_string' to:'$replace_string'(y/n)? " answer 
    
-  if [ "$answer" != "${answer#[Yy]}" ] ;then
+  if [ "$answer" != "${answer#[Yy]}" ]; then
       printf "%s\n" "Continuing..."
   else
       printf "%s\n" "Exiting." 
@@ -37,7 +40,8 @@ confirm_changes() {
   fi
 } 
 
-# Rename each file beginning with "find_string*" and replace with "replace_string" using mv.
+# Rename each file beginning with "find_string*", 
+# replacing "find_string" with "replace_string" using mv.
 
 bulk_rename() {
   printf "%s\n" "Renaming files..."
@@ -58,7 +62,7 @@ main() {
   input_to_replace 
   preview_changes
   confirm_changes
-  #bulk_rename
+  bulk_rename
 } 
 
 main "$@" 
