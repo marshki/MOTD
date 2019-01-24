@@ -14,6 +14,16 @@ input_to_replace() {
   read -p "Enter the string to replace: " replace_string 
 } 
 
+# Preview changes to be made.  
+
+preview_changes() {
+  printf "%s\n" "Generating preview..."
+ 
+  for file in $find_string*; do 
+    printf "%s %s \n" "$file" "-->" "${file/$find_string/$replace_string}" 
+  done
+} 
+
 # Read user input; exit if not Y or y.  
 
 confirm_changes() { 
@@ -46,8 +56,9 @@ printf "%s\n" "Bulky: A Bash script to rename files en masse."
 main() {
   input_to_find
   input_to_replace 
+  preview_changes
   confirm_changes
-  bulk_rename
+  #bulk_rename
 } 
 
 main "$@" 
