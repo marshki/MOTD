@@ -1,14 +1,24 @@
 #!/usr/bin/env bash 
-# mjk 2018.09.28 
+#
+# motd
+# 
+# Message of the day (MOTD) for interactive shells in BSD & Linux.
+# For rigs in NYU's Center for Neural Science, and Department of Psychology, but open to all. 
+#
+# Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
+#
+# Date: 2018.09.28 
+# License MIT 
 
-# Message of the day (MOTD) for interactive shells in BSD & Linux
-# Open to all, but tailored to rigs in NYU's departments of Neural Science, and Psychology. 
-
-#### HEADER ARRAY ####
+############## 
+# Header Array
+##############
 
 HEADR=("HOSTNAME(FQDN)" "LAST LOGIN" UPTIME "LOAD AVGS." "RUNNING PROCESSES" "MEMORY USAGE" "DISK USAGE" "IP ADDRESS" "MAC ADDRESS")
 
-#### VARIABLES ####
+###########
+# Variables
+###########
 
 # fully-qualified domain name 
 host_name=$(hostname -f)
@@ -28,7 +38,9 @@ procs=$(ps ax | wc -l | tr -d " ")
 # disk stats: size used avail. capacity in GBs
 disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
 
-#### FUNCTIONS ####
+########### 
+# FUNCTIONS 
+###########
 
 maus() {
   # ASCII mouse w/text box, centered 
@@ -51,7 +63,9 @@ hr(){
   printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
 }
 
-#### Meat & Potatoes ####
+#################
+# Meat & Potatoes 
+#################
 
 case $(uname -s) in
 
