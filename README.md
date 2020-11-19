@@ -11,7 +11,7 @@ Drop-in Bash script for a [message-of-the day](https://en.wikipedia.org/wiki/Mot
 Open to all, but tailored to rigs in NYU's departments of [Neural Science](http://www.cns.nyu.edu/), [Psychology](http://as.nyu.edu/psychology.html), 
 and [The Center for Brain Imaging](http://as.nyu.edu/cbi.html).
 
-Tested to run on Linux (CentOS, Debian, Ubuntu) and currently-supported versions of macOS. 
+Tested to run on GNU/Linux (CentOS, Debian, Ubuntu) and currently-supported versions of macOS. 
 
 ![ALT text](https://github.com/marshki/MOTD/blob/master/docs/motd.png "motd")
 
