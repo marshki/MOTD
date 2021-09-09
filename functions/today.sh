@@ -4,8 +4,8 @@
 
 today(){
     
-  tdy=$(date +"%Y %B %e, %A, %T %Z")
-  printf "%s \n" "$tdy" 
+  today=$(date +"%Y %B %e, %A, %T %Z")
+  printf "%s \n" "$today" 
 } 
 
 today
