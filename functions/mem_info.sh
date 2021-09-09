@@ -10,9 +10,9 @@ Darwin)
   # awk regex, return columns 2,6
   # --> KiB is returned in truncated format, which can throw off results <--
 
-  mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
+  memory=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
   
-  printf "%s\\n" "$mem (used unused)" 
+  printf "%s\n" "$memory (used unused)" 
   ;;
 
 Linux)
@@ -20,15 +20,15 @@ Linux)
   # memory stats: used unused 
   # free, then awk second row, print columns 3,4
 
-  mem=$(free -g |awk 'FNR==2 {print $3, $4}')
+  memory=$(free -g |awk 'FNR==2 {print $3, $4}')
 
   #-->work on this, need to print the proper row and columns <<- 
-  #mem=$(top -n 1 -d 0 |awk '/Mem/ {print $8, $6}' |head -1) 
+  #memory=$(top -n 1 -d 0 |awk '/Mem/ {print $8, $6}' |head -1) 
   
-  printf "%s\\n" "$mem (used unused)"
+  printf "%s\n" "$memory (used unused)"
   ;;
 
 *)
-  printf "%s\\n" "He can't handle your speed, $(uname -s)"
+  printf "%s\n" "He can't handle your speed, $(uname -s)"
   ;;
 esac
