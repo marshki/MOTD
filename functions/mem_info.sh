@@ -1,5 +1,5 @@
 #!/usr/bin/env bash 
-# Check OS; return free and used memory based on result 
+# Check OS; return free and used memory based on result. 
   
 case $(uname -s) in
 
@@ -24,6 +24,9 @@ Linux)
 
   #-->work on this, need to print the proper row and columns <<- 
   #memory=$(top -n 1 -d 0 |awk '/Mem/ {print $8, $6}' |head -1) 
+
+  # This seems close: 
+  # top -n 1 -d 0|awk '/MiB Mem :/{print $4, $6}'
   
   printf "%s\n" "$memory (used unused)"
   ;;
