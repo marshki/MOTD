@@ -23,11 +23,14 @@ Linux)
   memory=$(free -g |awk 'FNR==2 {print $3, $4}')
 
   #-->work on this, need to print the proper row and columns <<- 
-  #memory=$(top -n 1 -d 0 |awk '/Mem/ {print $8, $6}' |head -1) 
+  # top -n 1 -d 0|awk '/Mem/'
 
-  # This seems close: 
-  # top -n 1 -d 0|awk '/MiB Mem :/{print $4, $6}'
-  
+  # Sample outputs
+  # MiB Mem :   7661.1 total,   2233.0 free,   2893.5 used,   2534.6 buff/cache
+  # KiB Mem :  1698324 total,   711904 free,   419296 used,   567124 buff/cache
+  # Mem:  132149488k total,  3042460k used, 129107028k free,   957356k buffers
+  # KiB Mem : 13201608+total, 12153704+free,  2608656 used,  7870376 buff/cache
+
   printf "%s\n" "$memory (used unused)"
   ;;
 
