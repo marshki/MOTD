@@ -12,7 +12,7 @@ Darwin)
 
   memory=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
   
-  printf "%s\n" "$memory (used unused)" 
+  printf "%s\n" "$memory (total unused)" 
   ;;
 
 Linux)
