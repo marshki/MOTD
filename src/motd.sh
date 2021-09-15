@@ -1,16 +1,16 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 #
 # motd
-# 
-# Message of the day (MOTD) for interactive shells in BSD & Linux.
-# For rigs in NYU's Center for Neural Science, and Department of Psychology, but open to all. 
+#
+# Message of the day (MOTD) for interactive shells in BSD & GNU/Linux.
+# For rigs at NYU's Center for Brain Imaging; Center for Neural Science, and Department of Psychology.
 #
 # Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
 #
-# Date: 2018.09.28 
-# License MIT 
+# Date: 2018.09.28
+# License MIT
 
-############## 
+##############
 # Header Array
 ##############
 
@@ -20,26 +20,26 @@ HEADR=("HOSTNAME(FQDN)" "LAST LOGIN" UPTIME "LOAD AVGS." "RUNNING PROCESSES" "ME
 # Variables
 ###########
 
-# fully-qualified domain name 
+# fully-qualified domain name
 host_name=$(hostname -f)
 
-# last login 
+# last login
 last_log=$(last | awk 'NR==1'|tr -s ' ')
 
-# uptime: days hours:minutes 
-time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}') 
+# uptime: days hours:minutes
+time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
 
-# load avgs. over the past 1,5,15 min. intvls. 
-load_avg=$(uptime |awk '{ sub(/^.*: /, ""); print; }') 
+# load avgs. over the past 1,5,15 min. intvls.
+load_avg=$(uptime |awk '{ sub(/^.*: /, ""); print; }')
  
 # running processes
 procs=$(ps ax | wc -l | tr -d " ")
  
 # disk stats: size used avail. capacity in GBs
-disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}') 
+disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}')
 
-########### 
-# FUNCTIONS 
+###########
+# FUNCTIONS
 ###########
 
 maus() {
