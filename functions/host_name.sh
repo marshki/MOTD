@@ -1,12 +1,13 @@
-#!/usr/bin/env bash 
-# Check OS; return free and used memory based on result 
+#!/usr/bin/env bash
+# Fully-qualified domain name (FQDN).
+
 
 host_name(){
-  # fully-qualified domain name 
+  # FQDN.
   
   host=$(hostname -f)
 
-  printf "%s\\n" "$host (FQDN)"  
+  printf "%s\\n" "$host (FQDN)"
 }
 
 host_name
