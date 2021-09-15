@@ -6,7 +6,7 @@ load_averages(){
  
   load_avg=$(uptime |awk '{ sub(/^.*: /, ""); print; }')  
 
-  printf "%s\\n" "$load_avg (1, 5, 15 min)" 
+  printf "%s\n" "$load_avg (1, 5, 15 min)" 
 }
 
 load_averages
