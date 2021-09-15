@@ -47,20 +47,20 @@ maus() {
 
 printf '
                              )            
-                            (__        ----------------------
-                            _  )_     < CBI//CNS/PSYCH// TEK >
-                           (_)_(_)     ---------------------- 
+                            (__        -----------------------
+                            _  )_      < CBI//CNS//PSYCH TEK >
+                           (_)_(_)     -----------------------
                             (o o)  _ _/
                            ==\o/== 
 
 '
 }
 
-hr(){
+dot(){
   # shellcheck disable=SC2183
   # print horizontal line of characters 
 
-  printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
+  printf '%*s\n' "${1:-$:COLUMNS}" | tr ' ' "${2:-#}"
 }
 
 #################
@@ -84,15 +84,15 @@ Darwin)
   
   maus
   
-  printf -- '%.30s: %s\n' "${HEADR[0]}$(hr 30 .)" "${host_name}" 
-  printf -- '%.30s: %s\n' "${HEADR[1]}$(hr 30 .)" "${last_log}"
-  printf -- '%.30s: %s\n' "${HEADR[2]}$(hr 30 .)" "${time_up}"
-  printf -- '%.30s: %s\n' "${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
-  printf -- '%.30s: %s\n' "${HEADR[4]}$(hr 30 .)" "${procs} (total)"
-  printf -- '%.30s: %s\n' "${HEADR[5]}$(hr 30 .)" "${mem} (used unused)"
-  printf -- '%.30s: %s\n' "${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
-  printf -- '%.30s: %s\n' "${HEADR[7]}$(hr 30 .)" "${eth0}" 
-  printf -- '%.30s: %s\n' "${HEADR[8]}$(hr 30 .)" "${macaddr}"   
+  printf -- '%.30s: %s\n' "${HEADR[0]}$(dot 30 .)" "${host_name}" 
+  printf -- '%.30s: %s\n' "${HEADR[1]}$(dot 30 .)" "${last_log}"
+  printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up}"
+  printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+  printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
+  printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (used unused)"
+  printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
+  printf -- '%.30s: %s\n' "${HEADR[7]}$(dot 30 .)" "${eth0}" 
+  printf -- '%.30s: %s\n' "${HEADR[8]}$(dot 30 .)" "${macaddr}"   
 ;;
 
 Linux)
@@ -107,15 +107,15 @@ Linux)
  
   maus
 
-  printf -- '%.30s: %s\n' "${HEADR[0]}$(hr 30 .)" "${host_name}" 
-  printf -- '%.30s: %s\n' "${HEADR[1]}$(hr 30 .)" "${last_log}"
-  printf -- '%.30s: %s\n' "${HEADR[2]}$(hr 30 .)" "${time_up}"
-  printf -- '%.30s: %s\n' "${HEADR[3]}$(hr 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
-  printf -- '%.30s: %s\n' "${HEADR[4]}$(hr 30 .)" "${procs} (total)"
-  printf -- '%.30s: %s\n' "${HEADR[5]}$(hr 30 .)" "${mem} (used unused)"
-  printf -- '%.30s: %s\n' "${HEADR[6]}$(hr 30 .)" "${disk_usg} (size used avail capacity)"
-  printf -- '%.30s: %s\n' "${HEADR[7]}$(hr 30 .)" "${eth0}" 
-  printf -- '%.30s: %s\n' "${HEADR[8]}$(hr 30 .)" "${macaddr}" 
+  printf -- '%.30s: %s\n' "${HEADR[0]}$(dot 30 .)" "${host_name}" 
+  printf -- '%.30s: %s\n' "${HEADR[1]}$(dot 30 .)" "${last_log}"
+  printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up}"
+  printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+  printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
+  printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (used unused)"
+  printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
+  printf -- '%.30s: %s\n' "${HEADR[7]}$(dot 30 .)" "${eth0}" 
+  printf -- '%.30s: %s\n' "${HEADR[8]}$(dot 30 .)" "${macaddr}" 
 ;;
 
 *)
