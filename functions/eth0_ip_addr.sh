@@ -16,6 +16,9 @@ Linux)
   # ip add for eth0, then print last column.
 
   eth0=$(ip route get 1 | awk '{print $NF;exit}')
+  
+  # Simpler, but need to test:
+  # hostname -I |awk '{printf $1}'
 
   printf "%s\n" "$eth0"
 
