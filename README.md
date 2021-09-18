@@ -36,7 +36,7 @@ Then place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d`
 and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh`. 
 
 ## History 
-v.0.1 2018092
+v.0.1 14-JUN-2018
 
 ## License 
 [LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE). 
