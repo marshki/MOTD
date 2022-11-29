@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-cat /etc.defaults/VERSION
+awk '/productversion=/ {print $1}' /etc.defaults/VERSION
+
+# productversion="6.2.4"
