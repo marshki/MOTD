@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Extract DSM product version.
 
-awk '/productversion=/' /etc.defaults/VERSION
+awk '/productversion/' /etc.defaults/VERSION
+
 # productversion="6.2.4"
