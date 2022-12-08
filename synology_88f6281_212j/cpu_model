@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Extract CPU model name.
-
-# TODO: Only print first line to standard out.
-
-awk '/model name/ { sub(/^.*: /, ""); print; }' /proc/cpuinfo
-
-#Intel(R) Celeron(R) CPU  N3060  @ 1.60GHz
