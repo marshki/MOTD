@@ -1,0 +1,5 @@
+#!/usr/bin/env bash 
+
+awk '/MemTotal:/ { sub(/^.*: /, ""); print; }' /proc/meminfo
+
+# 930384 kB
