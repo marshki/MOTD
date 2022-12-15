@@ -1,6 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/local/bin/env bash
+# Synology model name
 
-awk '/syno_hw_version=/' /proc/cmdline
+model_name() {
+  
+  model=$(cat /proc/sys/kernel/syno_hw_version)
+    printf "%s\n" "$model"
+}
 
+model_name
 
-# Model name.
+# sample output: DS212j-j
