@@ -1,6 +1,6 @@
 #!/usr/local/bin/env bash
 # Get serial no. 
 
-awk '/dsserial/' /etc/synoinfo.conf
+cat /proc/sys/kernel/syno_serial
 
-# pushservice_dsserial="1670NMN287200"
+# sample output: 1670NMN287200
