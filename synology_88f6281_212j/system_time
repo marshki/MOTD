@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # System (current) time:
-# HH:MM:SS
+# hour:minute:second
 
 system_time(){ 
   # uptime
