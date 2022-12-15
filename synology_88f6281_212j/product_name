@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-awk '/syno_hw_version=/' /proc/cmdline
-
-
-# Model name.
