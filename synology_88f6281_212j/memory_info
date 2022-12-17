@@ -1,5 +1,12 @@
 #!/usr/bin/env bash 
 
-awk '/MemTotal:/ { sub(/^.*: /, ""); print; }' /proc/meminfo
+memory() {
+  mems=$(awk '/MemTotal:/ { sub(/^.*: /, ""); print; }' /proc/meminfo)
+  printf "%s\n" "$mems"  
+} 
+
+memory 
+
+# awk '/MemTotal:/ { sub(/^.*: /, ""); print; }' /proc/meminfo
 
 # 930384 kB
