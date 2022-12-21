@@ -1,5 +1,5 @@
 #!/usr/bin/env bash 
-# Total memory.
+# Total memory (kB).
 # Match, then print 2nd, 3rd field of record.
 
 memory() {
