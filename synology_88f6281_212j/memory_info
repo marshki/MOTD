@@ -1,12 +1,13 @@
 #!/usr/bin/env bash 
+# Total memory.
+# Match, then print 2nd, 3rd field of record.
 
 memory() {
-  mems=$(awk '/MemTotal:/ { sub(/^.*: /, ""); print; }' /proc/meminfo)
-  printf "%s\n" "$mems"  
-} 
 
-memory 
+  mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
+  printf "%s\n" "$mems"
+}
 
-# awk '/MemTotal:/ { sub(/^.*: /, ""); print; }' /proc/meminfo
+memory
 
 # 930384 kB
