@@ -4,3 +4,7 @@
 awk '/model name/ { sub(/^.*: /, ""); print; exit}' /proc/cpuinfo
 
 #Intel(R) Celeron(R) CPU  N3060  @ 1.60GHz
+
+awk '/Processor/ { sub(/^.*: /, ""); print; exit}' /proc/cpuinfo
+
+# Feroceon 88FR131 rev 1 (v5l)
