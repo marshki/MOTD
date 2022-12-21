@@ -9,4 +9,5 @@ serial_number() {
 } 
 
 serial_number
+
 # sample output: 1670NMN287200
