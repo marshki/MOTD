@@ -7,6 +7,8 @@ cpu_info() {
     printf "%s\n" "$cpu"
 } 
 
+cpu_info
+
 # Sample output:
 # Intel(R) Celeron(R) CPU  N3060  @ 1.60GHz
 # Feroceon 88FR131 rev 1 (v5l)
