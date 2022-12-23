@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 # Total memory (kB).
-# Sample output: 930384 kB
+# Sample output: 930384 kB, 32641488 kB
 
 memory() {
 
