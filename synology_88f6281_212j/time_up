@@ -3,12 +3,12 @@
 
 time_up(){ 
   # uptime
-  # strip commas, then print columns 3,4,5 
+  # strip whitespace, commas. print columns 4,5,7
 	    
-  timeup=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
+  timeup=$(uptime |awk -F '[ ,]' ' {print $4, $5, $7}' )
     printf "%s\n" "$timeup"
 }
 
 time_up
 
-# Sample output: 436 days 25
+# Sample output: 437 days 20:07
