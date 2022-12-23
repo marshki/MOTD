@@ -1,9 +1,9 @@
 #!/usr/local/bin/env bash
 # Get Synology serial no.
-# cat file
 # sample output: 1670NMN287200
 
 serial_number() {
+  # cat file
 
   serial=$(cat /proc/sys/kernel/syno_serial)
     printf "%s\n" "$serial"
