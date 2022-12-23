@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Fully-qualified domain name 
+# Fully-qualified domain name
+# sample output: kant.cns.nyu.edu 
+
 
 host() {
   host=$(hostname -f)
