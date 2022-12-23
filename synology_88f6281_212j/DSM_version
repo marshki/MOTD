@@ -4,3 +4,7 @@
 awk '/productversion/' /etc.defaults/VERSION
 
 # productversion="6.2.4"
+
+awk -F '=' 'NR==6 {print $2}' /etc.defaults//VERSION
+
+# "7.1.1"
