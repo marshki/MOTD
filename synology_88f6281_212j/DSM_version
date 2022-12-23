@@ -2,6 +2,10 @@
 # Extract DSM product version.
 # Sample output: 7.1.1
 
-awk -F '"' 'NR==6 {print $2}' /etc.defaults/VERSION 
+dsm_version () {
 
+  dsm=$(awk -F '"' 'NR==6 {print $2}' /etc.defaults/VERSION) 
+    printf "%s\n" "$dsm"
+}
 
+dsm_version
