@@ -1,8 +1,10 @@
 #!/usr/bin/env bash 
 # Total memory (kB).
-# Match, then print 2nd, 3rd field of record.
+# Sample output: 930384 kB
 
 memory() {
+
+  # Match, then print 2nd, 3rd field of record.
 
   mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
   printf "%s\n" "$mems"
@@ -10,4 +12,4 @@ memory() {
 
 memory
 
-# 930384 kB
+
