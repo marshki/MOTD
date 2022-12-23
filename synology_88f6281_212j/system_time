@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # System (current) time:
 # hour:minute:second
+# sample output: 14:41:54
 
 system_time(){ 
-  # uptime
-  # strip commas, then print column 1 
+  # uptime | print first field 
 		    
-  systemtime=$(uptime | sed 's/,//g' | awk '{ print $1}')
+  systemtime=$(uptime | awk '{ print $1}')
     printf "%s\n" "$systemtime" 
 }
 
 system_time
-
-# sample output: 14:41:54
