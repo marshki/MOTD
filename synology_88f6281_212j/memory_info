@@ -13,7 +13,8 @@ memory() {
 memory
 
 # TODO: convert kB to mB
-# echo 930384 / 1024 |bc
-# -> 908 
-# echo 3241488 / 1024 |bc 
+
+# echo $((3241488 / 1024 ))
 # -> 3165
+# echo $((930384 / 1024 ))
+# -> 906
