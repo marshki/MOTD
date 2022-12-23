@@ -13,6 +13,7 @@ memory() {
 memory
 
 # TODO: convert kB to mB
+# For reference: https://stackoverflow.com/questions/27926152/division-math-in-a-bash-script-without-bc
 
 # echo $((3241488 / 1024 ))
 # -> 3165
