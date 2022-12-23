@@ -6,10 +6,11 @@
 
 cpu_info() {
 
+  # awk to match 'model name' or 'Processor'
+  # extract string to the right of ':', print only first match
+
   cpu=$(awk '/model name/ || /Processor/ { sub(/^.*: /, ""); print; exit}' /proc/cpuinfo)
     printf "%s\n" "$cpu"
 } 
 
 cpu_info
-
-
