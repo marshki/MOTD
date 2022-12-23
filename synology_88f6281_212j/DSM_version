@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 # Extract DSM product version.
+# Sample output: 7.1.1
 
-awk '/productversion/' /etc.defaults/VERSION
+awk -F '"' 'NR==6 {print $2}' /etc.defaults/VERSION 
 
-# productversion="6.2.4"
 
-awk -F '=' 'NR==6 {print $2}' /etc.defaults//VERSION
-
-# "7.1.1"
