@@ -26,11 +26,24 @@ memory() {
 
 memory 
 
+memory() {
+  # Match, then print 2nd field of record.
+  # Then, use int to divide parsed field by 1000.
 
-# TODO: convert kB to mB
+  mems=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
+  mB=$(awk 'BEGIN {print int('$mems'/1000)}')
+
+  printf "%s\n" "$mB"
+}
+
+memory
+
+
+
 # For reference: https://stackoverflow.com/questions/27926152/division-math-in-a-bash-script-without-bc
-
 # echo $((3241488 / 1024 ))
 # -> 3165
 # echo $((930384 / 1024 ))
 # -> 906
+
+# For reference: https://stackoverflow.com/questions/14858182/integer-division-in-awk
