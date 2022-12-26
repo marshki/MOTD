@@ -2,15 +2,30 @@
 # Total memory (kB).
 # Sample output: 930384 kB, 32641488 kB
 
+
+# Standalone parse function: 
+
 memory() {
 
   # Match, then print 2nd, 3rd field of record.
-
-  mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
-  printf "%s\n" "$mems"
+  
+    # mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
+  # printf "%s\n" "$mems"
 }
 
 memory
+
+# Parse and convert using int (Bash builtin) to divide.
+
+memory() {
+
+  mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
+  int($mems/1024)
+
+}
+
+memory 
+
 
 # TODO: convert kB to mB
 # For reference: https://stackoverflow.com/questions/27926152/division-math-in-a-bash-script-without-bc
