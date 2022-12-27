@@ -9,7 +9,7 @@ memory() {
 
   # Match, then print 2nd, 3rd field of record.
   
-    # mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
+  # mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
   # printf "%s\n" "$mems"
 }
 
@@ -31,11 +31,16 @@ memory() {
   # Then, use int to divide parsed field by 1000 (or 1024)
 
   kB=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
+ 
+  gB=$(awk '{print $kb/1024/1024/1024 " GB "}'
 
-  mB=$(awk 'BEGIN {print int('$kB'/1000)}')
-  gB=$(awk 'BEGIN {print int('$mB'/1000)}')
+  #mB=$(awk 'BEGIN {print int('$kB'/1000)}')
+  #gB=$(awk 'BEGIN {print int('$mB'/1000)}')
 
-  printf "%s\n" "$mB mB"
+  #gB=$(awk 'BEGIN {print int('$kB'/1024/1024/1024)}')
+
+
+  printf "%s\n" "$gB"
 }
 
 memory
@@ -45,5 +50,4 @@ memory
 # -> 3165
 # echo $((930384 / 1024 ))
 # -> 906
-
 # For reference: https://stackoverflow.com/questions/14858182/integer-division-in-awk
