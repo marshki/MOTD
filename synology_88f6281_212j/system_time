@@ -4,6 +4,7 @@
 # sample output: 14:41:54
 
 system_time(){ 
+
   # uptime | print first field 
 		    
   systemtime=$(uptime | awk '{ print $1}')
