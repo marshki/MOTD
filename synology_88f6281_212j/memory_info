@@ -15,17 +15,6 @@ memory() {
 
 memory
 
-# Parse and convert using int (Bash builtin) to divide.
-
-memory() {
-
-  mems=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
-  int($mems/1024)
-
-}
-
-memory 
-
 memory() {
   # Match, then print 2nd field of record.
   # Then, use int to divide parsed field by 1000 (or 1024)
