@@ -4,6 +4,9 @@
 
 dsm_version () {
 
+  # awk to field separate by "
+  # Extract row 6, column 2
+
   dsm=$(awk -F '"' 'NR==6 {print $2}' /etc.defaults/VERSION) 
     printf "%s\n" "$dsm"
 }
