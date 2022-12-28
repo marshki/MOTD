@@ -3,6 +3,7 @@
 # Sample output: 437 days 20:07
 
 time_up(){ 
+
   # uptime |
   # strip whitespace & commas, print columns 4,5,7
 	    
@@ -11,5 +12,3 @@ time_up(){
 }
 
 time_up
-
-
