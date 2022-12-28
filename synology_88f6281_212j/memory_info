@@ -5,25 +5,26 @@
 # 3.79939 gB
 # 31.1288 gB 
 
-# Standalone parse function: 
+# Standalone parse function (kB): 
 
 memory() {
-
-  Match, then print 2nd, 3rd field of record.
+  # Match, then print 2nd, 3rd fields of record.
   
   kB=$(awk '/MemTotal/ {print $2, $3}' /proc/meminfo)
   printf "%s\n" "$kb"
 }
 
-memory
+# memory
+
+# kB to gB conversion function: 
 
 memory() {
   # Match, then print 2nd field of record.
   # Then, use int to divide parsed field by 1000 (or 1024)
 
-  gB=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
+  gB=$(awk '/MemTotal/ {print $2/1024/1024}' /proc/meminfo)
  
-  printf "%s\n" "$gB"
+  printf "%s\n" "$gB gB"
 }
 
 memory
