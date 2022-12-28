@@ -2,8 +2,8 @@
 # Fully-qualified domain name
 # sample output: kant.cns.nyu.edu 
 
-
 host() {
+
   host=$(hostname -f)
     printf "%s\n" "$host"
 } 
