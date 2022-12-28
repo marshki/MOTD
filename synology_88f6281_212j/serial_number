@@ -3,6 +3,7 @@
 # sample output: 1670NMN287200
 
 serial_number() {
+
   # cat file
 
   serial=$(cat /proc/sys/kernel/syno_serial)
