@@ -45,9 +45,4 @@ memory() {
 
 memory
 
-# For reference: https://stackoverflow.com/questions/27926152/division-math-in-a-bash-script-without-bc
-# echo $((3241488 / 1024 ))
-# -> 3165
-# echo $((930384 / 1024 ))
-# -> 906
-# For reference: https://stackoverflow.com/questions/14858182/integer-division-in-awk
+# For reference: https://stackoverflow.com/questions/56688874/convert-bytes-to-gb-in-each-line
