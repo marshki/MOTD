@@ -3,6 +3,7 @@
 # sample output: DS212j-j
 
 model_name() {
+
   # cat file
   
   model=$(cat /proc/sys/kernel/syno_hw_version)
