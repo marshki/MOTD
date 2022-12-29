@@ -5,6 +5,11 @@
 #       determine primary interface
 #       map MAC to DHCP IP?
 
+
+test_array=( $(cat /proc/sys/kernel/syno_mac_address{1..4}))
+
+printf '%s\n' "${test_array[@]}"
+
 mac_address() {
 
   MAC=$(cat /proc/sys/kernel/syno_mac_address{1..4})
