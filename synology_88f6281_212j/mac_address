@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Get MAC address for primary network interface.
 
-# TODO: work with multiple addresses
+# TODO: map variables eth0, eth1, ... to correspoding MAC
 #       determine primary interface
+#       map MAC to DHCP IP?
 
 mac_address() {
 
