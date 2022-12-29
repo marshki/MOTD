@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # Get MAC address for primary network interface.
 
+# TODO: work with multiple addresses
+#       determine primary interface
+
 mac_address() {
 
   MAC=$(cat /proc/sys/kernel/syno_mac_address*)
-  printf "%s\n" "$MAC"
+    printf "%s\n" "$MAC"
 } 
 
 mac_address
