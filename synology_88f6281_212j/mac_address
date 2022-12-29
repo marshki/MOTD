@@ -6,7 +6,7 @@
 
 mac_address() {
 
-  MAC=$(cat /proc/sys/kernel/syno_mac_address*)
+  MAC=$(cat /proc/sys/kernel/syno_mac_address{1..4})
     printf "%s\n" "$MAC"
 } 
 
