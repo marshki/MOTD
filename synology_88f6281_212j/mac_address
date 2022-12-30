@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Get MAC address for primary network interface.
 
-# TODO: map variables eth0, eth1, ... to correspoding MAC
-#       determine primary interface
-#       map MAC to DHCP IP?
-
+# TODO: 
+# map variables eth0, eth1, ... to corresponding MAC
+# determine primary interface
+# map MAC to DHCP IP?
 
 test_array=( $(cat /proc/sys/kernel/syno_mac_address{1..4}))
 
