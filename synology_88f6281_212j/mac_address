@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Get MAC address for primary network interface.
+# Desired output:
+# LAN 0 001132623d3f
+# LAN 1 001132623d40
 
 # TODO: 
-# map variables eth0, eth1, ... to corresponding MAC
 # determine primary interface
 # map MAC to DHCP IP?
 
