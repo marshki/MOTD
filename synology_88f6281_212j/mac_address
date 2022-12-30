@@ -8,7 +8,11 @@
 
 mac_address=( $(cat /proc/sys/kernel/syno_mac_address{1..4}))
 
-printf '%s\n' "${mac_address[@]/#/ }"
+# printf '%s\n' "${mac_address[@]/#/ }"
+
+for i in ${!mac_address[@]}; do
+  printf '%s\n' "LAN $i is ${mac_address[$i]}"
+done
 
 # mac_address() {
 
