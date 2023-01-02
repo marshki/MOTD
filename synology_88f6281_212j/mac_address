@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Get MAC address for primary network interface.
+# Get MAC address for onboard Ethernet adapters.
 # Desired output:
-# LAN 0 001132623d3f
-# LAN 1 001132623d40
+# LAN 1 001132623d3f
+# LAN 2 001132623d40
 
 # TODO: 
 # determine primary interface
