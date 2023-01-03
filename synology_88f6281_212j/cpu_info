@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Extract CPU model name.
-# Sample output:
+# Sample output(s):
 # Intel(R) Celeron(R) CPU  N3060  @ 1.60GHz
 # Feroceon 88FR131 rev 1 (v5l)
 
 cpu_info() {
 
-  # awk to match 'model name' or 'Processor'
+  # Awk to match 'model name' OR 'Processor'
   # extract string to the right of ':', print only first match
 
   cpu=$(awk '/model name/ || /Processor/ { sub(/^.*: /, ""); print; exit}' /proc/cpuinfo)
