@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Get MAC address for onboard Ethernet adapters.
+# Get MAC address(es) for onboard Ethernet adapters.
 # Desired output:
 # LAN 1 001132623d3f
 # LAN 2 001132623d40
@@ -8,13 +8,7 @@
 # determine primary interface
 # map MAC to DHCP IP?
 
-# mac_address=( $(cat /proc/sys/kernel/syno_mac_address{1..4}))
-
 readarray -t -O1 mac_address < <(cat /proc/sys/kernel/syno_mac_address[1-4])
-
-# printf '%s\n' "${mac_address[@]/#/LAN }"
-
-# printf "${mac_address[*]}"
 
 for i in "${!mac_address[@]}"; do
   printf '%s\n' "LAN $i ${mac_address[$i]}"
@@ -22,7 +16,7 @@ done
 
 # mac_address() {
 
-#  MAC=$(cat /proc/sys/kernel/syno_mac_address{1..4})
+#  MAC=$(cat /proc/sys/kernel/syno_mac_address[1..4])
 #    printf "%s\n" "$MAC"
 #} 
 
