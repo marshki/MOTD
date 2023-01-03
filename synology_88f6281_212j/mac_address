@@ -8,17 +8,21 @@
 
 readarray -t -O1 mac_address < <(cat /proc/sys/kernel/syno_mac_address[1-4])
 
-for i in "${!mac_address[@]}"; do
-  printf '%s\n' "LAN $i ${mac_address[$i]}"
-done
+mac() {
+
+  for i in "${!mac_address[@]}"; do
+    printf '%s\n' "LAN $i ${mac_address[$i]}"
+  done
+}
 
 # Parse & print:
-# mac_address() {
+# mac() {
 
-#  MAC=$(cat /proc/sys/kernel/syno_mac_address[1..4])
-#    printf "%s\n" "$MAC"
+#  mac_address=$(cat /proc/sys/kernel/syno_mac_address[1..4])
+#    printf "%s\n" "$mac_address"
 #} 
-#mac_address
+
+mac
 
 # TODOs: 
 # determine primary interface
