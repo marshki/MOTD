@@ -1,6 +1,7 @@
 #!/usr/local/bin/env bash
-# Get Synology serial no.
-# sample output: 1670NMN287200
+# Synology serial no.
+# Sample output:
+# 1670NMN287200
 
 serial_number() {
 
