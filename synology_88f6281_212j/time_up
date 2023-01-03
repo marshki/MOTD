@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # uptime: days hours:minutes
-# Sample output: 437 days 20:07
+# Sample output: 
+# 437 days 20:07
 
-time_up(){ 
+time_up() { 
 
   # uptime |
-  # strip whitespace & commas, print columns 4,5,7
+  # awk strip whitespace AND commas, print columns 4,5,7
 	    
   timeup=$(uptime |awk -F '[ ,]' ' {print $4, $5, $7}' )
     printf "%s\n" "$timeup"
