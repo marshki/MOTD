@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Extract DSM product version.
-# Sample output: 7.1.1
+# Sample output: 
+# 7.1.1
 
 dsm_version() {
 
