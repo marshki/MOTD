@@ -1,4 +1,4 @@
-## Exoskeleton.
+## Exoskeleton
 [Synology CLI reference](https://global.download.synology.com/download/Document/Software/DeveloperGuide/Firmware/DSM/All/enu/Synology_DiskStation_Administration_CLI_Guide.pdf)
 
 ### Basic Information
