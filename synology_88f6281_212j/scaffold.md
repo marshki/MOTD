@@ -3,16 +3,12 @@
 
 ### Basic Information
 - [x] Server name
-
 - [x] DSM version
 
 ### Hardware
 - [x] Serial number
-
 - [x] Model name
-
 - [x] CPU 
-
 - [x] Total physical memory
 
 ### Network
