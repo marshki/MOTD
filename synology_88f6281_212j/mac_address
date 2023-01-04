@@ -23,5 +23,13 @@ mac_address() {
 mac_address
 
 # TODOs: 
+# ------
 # determine primary interface
+
+# sudo synonet --show
+# e.g.:
+# Network interface: eth0 
+# DHCP 
+# IP: 172.22.114.159 
+
 # map MAC to DHCP IP?
