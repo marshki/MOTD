@@ -1,30 +1,24 @@
 #!/usr/bin/env bash
-# Get MAC address for each onboard NIC.
+# Get MAC address for onboard NIC(s).
 # Desired output:
 # LAN 1 001132623d3f
 # LAN 2 001132623d40
 # LAN 3
 # LAN 4
 
-readarray -t -O1 mac_address < <(cat /proc/sys/kernel/syno_mac_address[1-4])
+# readarray -t -O1 ADDRESS_ARRAY < <(cat /proc/sys/kernel/syno_mac_address[1-4])
 
-mac() {
+mac_address() {
 
-  for i in "${!mac_address[@]}"; do
-    printf '%s\n' "LAN $i ${mac_address[$i]}"
+  readarray -t -O1 ADDRESS_ARRAY < <(cat /proc/sys/kernel/syno_mac_address[1-4])
+
+  for i in "${!ADDRESS_ARRAY[@]}"; do
+    printf '%s\n' "LAN $i ${ADDRESS_ARRAY[$i]}"
   done
 }
 
-# Parse & print:
-# mac() {
-
-#  mac_address=$(cat /proc/sys/kernel/syno_mac_address[1..4])
-#    printf "%s\n" "$mac_address"
-#} 
-
-mac
+mac_address
 
 # TODOs: 
 # determine primary interface
 # map MAC to DHCP IP?
-
