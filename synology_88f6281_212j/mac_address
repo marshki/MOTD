@@ -6,8 +6,6 @@
 # LAN 3
 # LAN 4
 
-# readarray -t -O1 ADDRESS_ARRAY < <(cat /proc/sys/kernel/syno_mac_address[1-4])
-
 mac_address() {
 
   readarray -t -O1 ADDRESS_ARRAY < <(cat /proc/sys/kernel/syno_mac_address[1-4])
