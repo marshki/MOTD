@@ -26,10 +26,10 @@ mac_address
 # ------
 # Note --> syno_mac_addresses 
 
-# determine IP
-# sudo synonet --show
-# sudo synonet --show |awk '/IP/ { sub(/^.*: /, ""); print; exit}'
+# List IPs
+# sudo synonet --show |awk '/IP/ { sub(/^.*: /, ""); print}'
 # IP: 172.22.114.159 
+# IP: 169.254.84.242 
 
 # determine primary interface
 
