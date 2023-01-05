@@ -22,14 +22,14 @@ mac_address() {
 
 mac_address
 
-# TODOs: 
+# TODOs:
 # ------
+# determine IP
 # determine primary interface
 
 # sudo synonet --show
-# e.g.:
-# Network interface: eth0 
-# DHCP 
+# sudo synonet --show |awk '/IP/ { sub(/^.*: /, ""); print; exit}'
 # IP: 172.22.114.159 
+
 
 # map MAC to DHCP IP?
