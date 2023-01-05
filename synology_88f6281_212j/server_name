@@ -10,3 +10,5 @@ host() {
 } 
 
 host
+
+# sudo synonet --get_hostname
