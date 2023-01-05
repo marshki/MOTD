@@ -24,6 +24,7 @@ mac_address
 
 # TODOs:
 # ------
+# Note --> syno_mac_addresses 
 
 # determine IP
 # sudo synonet --show
