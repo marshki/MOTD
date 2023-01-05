@@ -24,12 +24,12 @@ mac_address
 
 # TODOs:
 # ------
-# determine IP
-# determine primary interface
 
+# determine IP
 # sudo synonet --show
 # sudo synonet --show |awk '/IP/ { sub(/^.*: /, ""); print; exit}'
 # IP: 172.22.114.159 
 
+# determine primary interface
 
 # map MAC to DHCP IP?
