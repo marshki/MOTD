@@ -28,6 +28,8 @@ mac_address
 # sudo synonet --show |awk '/IP/ { sub(/^.*: /, ""); print}'
 # IP: 172.22.114.159 
 # IP: 169.254.84.242 
+# sudo synonet --show |awk '/IP/ && /172/ { sub(/^.*: /, ""); print}'
+# 172.22.114.159
 
 # ------
 # determine primary interface
