@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 # List 172 subnet IP(s).
 
-sudo synonet --show |awk '/IP/ { sub(/^.*: /, ""); print}'
+# List all IPs
+# Sample output:
 # IP: 172.22.114.159 
 # IP: 169.254.84.242 
 
-sudo synonet --show |awk '/IP/ && /172/ { sub(/^.*: /, ""); print}'
+sudo synonet --show |awk '/IP/ { sub(/^.*: /, ""); print}'
+
+# List 172 IPs
+# Sample output:
 # 172.22.114.159
+
+sudo synonet --show |awk '/IP/ && /172/ { sub(/^.*: /, ""); print}'
 
 # ------
 # determine primary interface
