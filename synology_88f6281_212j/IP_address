@@ -26,6 +26,8 @@ IP_address() {
 
 IP_address
 
+# -----
+# ipconfig --help
 # ------
 # determine primary interface
 # ------
