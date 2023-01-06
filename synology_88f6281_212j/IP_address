@@ -25,7 +25,7 @@ IP_address() {
 }
 
 IP_address
-
+# ifconfig -a |awk '/inet addr/ { sub(/^.*: /, ""); print $2;}' 
 # -----
 # ipconfig --help
 # ------
