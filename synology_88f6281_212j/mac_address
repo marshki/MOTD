@@ -23,4 +23,4 @@ mac_address() {
 mac_address
 
 # Potentially simpler, and reusable approach:
-# ifconfig -a |awk '/eth*/ && /HWaddr/ {print $1, $5}'
+# ifconfig -a |awk '/eth[0,1,2,3]/ && /HWaddr/ {print $1, $5}'
