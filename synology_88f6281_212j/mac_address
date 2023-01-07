@@ -7,11 +7,17 @@
 # LAN 4
 
 mac_address() {
+  # ifconfig 
+
+
   mac=$(ifconfig -a |awk '/eth[0,1,2,3]/ && /HWaddr/ {print $1, $5}')
     printf "%s\n" "$mac"
 }
 
 mac_address
 
-# Potentially simpler, and reusable approach:
-# ifconfig -a |awk '/eth[0,1,2,3]/ && /HWaddr/ {print $1, $5}'
+
+# Modern approach, but need to iterate?
+# ip addr show eth1|awk '/link\/ether/ {print $2}'
+# Sample output: 
+# 00:11:32:92:c4:06
