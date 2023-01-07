@@ -7,17 +7,8 @@
 # LAN 4
 
 mac_address() {
-
-  # redirect output of cat file[path name expansion] to array
-  # readarray -t -01 starts count at '1' not '0'
-
-  readarray -t -O1 ADDRESS_ARRAY < <(cat /proc/sys/kernel/syno_mac_address[1-4])
-
-  # Iterate over array, printing LAN n macaddress 
-
-  for i in "${!ADDRESS_ARRAY[@]}"; do
-    printf '%s\n' "LAN $i ${ADDRESS_ARRAY[$i]}"
-  done
+  mac=$(ifconfig -a |awk '/eth[0,1,2,3]/ && /HWaddr/ {print $1, $5}')
+    printf "%s\n" "$mac"
 }
 
 mac_address
