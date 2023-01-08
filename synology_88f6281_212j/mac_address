@@ -7,8 +7,9 @@
 # LAN 4
 
 mac_address() {
-  # ifconfig 
-
+  # ifconfig to list all interfaces
+  # awk to extract eth 0-4 AND Hwaddr
+  # print fields 1, 5 
 
   mac=$(ifconfig -a |awk '/eth[0,1,2,3]/ && /HWaddr/ {print $1, $5}')
     printf "%s\n" "$mac"
