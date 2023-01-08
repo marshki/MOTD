@@ -27,5 +27,7 @@ mac_address
 # ip addr show eth1|awk '/link\/ether/ {print $2}'
 # ip addr show |awk '/link\/ether/ {print $2}'
 
+# ip -o link |awk -F ' ' '/eth[0,1,2,3]/ && /link/ {print $2, $17}'
+
 # Sample output: 
 # 00:11:32:92:c4:06
