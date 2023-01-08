@@ -23,8 +23,11 @@ IP_address() {
   IP=$(synonet --show |awk '/IP/ && /172/ { sub(/^.*: /, ""); print}')
     printf "%s\n" "$IP"
 }
-
+ 
 IP_address
+
+# ip addr show |awk '/eth[0,1,2,3]/ && /inet/ {print $2}'
+
 # ifconfig -a |awk '/inet addr/ { sub(/^.*: /, ""); print $2;}' 
 # -----
 # ipconfig --help
