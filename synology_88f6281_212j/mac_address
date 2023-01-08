@@ -23,11 +23,11 @@ mac_address
 # eth2 00:11:32:92:C4:07
 # eth3 00:11:32:92:C4:08
 
-# Modern approach, but need to iterate?
-# ip addr show eth1|awk '/link\/ether/ {print $2}'
-# ip addr show |awk '/link\/ether/ {print $2}'
-
-# ip -o link |awk -F ' ' '/eth[0,1,2,3]/ && /link/ {print $2, $17}'
-
-# Sample output: 
-# 00:11:32:92:c4:06
+# ip -o link |awk '/eth/ && /link\/ether/ {print $2, $17}'
+# Sample output:
+# eth3: 00:11:32:92:c4:08
+# eth2: 00:11:32:92:c4:07
+# eth1: 00:11:32:92:c4:06
+# eth0: 00:11:32:92:c4:05
+# eth5: 00:11:32:92:c4:0a
+# eth4: 00:11:32:92:c4:09
