@@ -17,17 +17,10 @@ mac_address() {
 
 mac_address
 
-# Sample output
+# Sample output:
 # eth0 00:11:32:92:C4:05
 # eth1 00:11:32:92:C4:06
 # eth2 00:11:32:92:C4:07
 # eth3 00:11:32:92:C4:08
 
-# ip -o link |awk '/eth/ && /link\/ether/ {print $2, $17}'
-# Sample output:
-# eth3: 00:11:32:92:c4:08
-# eth2: 00:11:32:92:c4:07
-# eth1: 00:11:32:92:c4:06
-# eth0: 00:11:32:92:c4:05
-# eth5: 00:11:32:92:c4:0a
-# eth4: 00:11:32:92:c4:09
+# May need to swap eth0 with LAN 1...
