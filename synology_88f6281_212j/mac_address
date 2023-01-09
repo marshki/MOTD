@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Get MAC address for onboard NIC(s).
-# Desired output:
-# LAN 1 001132623d3f
-# LAN 2 001132623d40
-# LAN 3
-# LAN 4
+# Sample output:
+# eth0 00:11:32:92:C4:05
+# eth1 00:11:32:92:C4:06
+# eth2 00:11:32:92:C4:07
+# eth3 00:11:32:92:C4:08
 
 mac_address() {
   # ifconfig to list all interfaces
@@ -16,11 +16,3 @@ mac_address() {
 }
 
 mac_address
-
-# Sample output:
-# eth0 00:11:32:92:C4:05
-# eth1 00:11:32:92:C4:06
-# eth2 00:11:32:92:C4:07
-# eth3 00:11:32:92:C4:08
-
-# May need to swap eth0 with LAN 1...
