@@ -8,8 +8,8 @@
 
 mac_address() {
   # ifconfig to list all interfaces
-  # awk to extract eth 0-4 AND Hwaddr
-  # print fields 1, 5 
+  # awk to extract eth 0-5 AND Hwaddr
+  # print fields 1, 5
 
   mac=$(ifconfig -a |awk '/eth[0-5]/ && /HWaddr/ {print $1, $5}')
     printf "%s\n" "$mac"
