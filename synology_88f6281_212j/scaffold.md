@@ -6,14 +6,15 @@
   -  DSM version
 
 ### Hardware
--  Serial number
--  Model name
--  CPU 
--  Total physical memory
+  -  Serial number
+  -  Model name
+  -  CPU
+  -  Total physical memory
 
 ### Network
-  -  MAC address
+  -  MAC address(es)
+  -  IP address(es)
 
 ### Time 
--  System Time
--  Uptime
+  -  System Time
+  -  Uptime
