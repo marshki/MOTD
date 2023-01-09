@@ -17,6 +17,8 @@ IP_address
 
 # TODO:
 # ------
-# determine in use interface
+# determine in use interface(s)
+# ip link show |awk -F ':' '/state UP/ {print $2}'
+
 # ------
 # map MAC to DHCP IP?
