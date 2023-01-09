@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Extract DSM product version.
-# Sample output: 
+# Sample output:
 # 7.1.1
 
 dsm_version() {
@@ -8,7 +8,7 @@ dsm_version() {
   # Awk set field separator as: " (double quote)
   # Extract row 6, column 2
 
-  dsm=$(awk -F '"' 'NR==6 {print $2}' /etc.defaults/VERSION) 
+  dsm=$(awk -F '"' 'NR==6 {print $2}' /etc.defaults/VERSION)
     printf "%s\n" "$dsm"
 }
 
