@@ -1,40 +1,16 @@
 #!/usr/bin/env bash
 # List 172 subnet IP(s).
-
-# -----
-# Let's get away from using synonet as it reuires sudo privileges.
-
-# List all IPs
-# Sample output:
-# IP: 172.22.114.159 
-# IP: 169.254.84.242 
+# Sample output: 
+# 172.22.115.242/23
 
 IP_address() {
 
-  IP=$(synonet --show |awk '/IP/ { sub(/^.*: /, ""); print}')
+  IP=$(ip addr show |awk '/eth[0-5]/ && /172/ {print $2}')
     printf "%s\n" "$IP"
 }
 
-# IP_address
-
-# List 172 IPs
-# Sample output:
-# 172.22.114.159
-
-IP_address() {
-
-  IP=$(synonet --show |awk '/IP/ && /172/ { sub(/^.*: /, ""); print}')
-    printf "%s\n" "$IP"
-}
- 
 IP_address
 
-# ip addr show |awk '/eth[0,1,2,3]/ && /inet/ {print $2}'
-
-# ifconfig -a |awk '/inet addr/ { sub(/^.*: /, ""); print $2;}' 
-
-# -----
-# ifconfig --help
 # ------
 # determine primary interface
 # ------
