@@ -11,6 +11,6 @@ cpu_info() {
 
   cpu=$(awk '/model name/ || /Processor/ { sub(/^.*: /, ""); print; exit}' /proc/cpuinfo)
     printf "%s\n" "$cpu"
-} 
+}
 
 cpu_info
