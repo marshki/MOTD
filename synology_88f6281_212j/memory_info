@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Total memory (gB) using kB to gB conversion. 
+# Total memory (gB) using kB to gB conversion.
 # For reference: https://stackoverflow.com/questions/56688874/convert-bytes-to-gb-in-each-line
 # Sample output(s):
 # 0.237873 gB
