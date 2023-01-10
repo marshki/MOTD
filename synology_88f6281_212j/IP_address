@@ -26,3 +26,4 @@ IP_address
 
 # ------
 # map MAC to DHCP IP?
+# ip addr show |awk '/link\/ether/ {print $2} /inet/ {print $2}'
