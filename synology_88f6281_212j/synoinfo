@@ -1,21 +1,36 @@
 #!/usr/bin/env bash
 # Select Synology system information.
 
-FIELDS=(
-'Basic Information'
-'Server name'
-'DSM version'
-'Hardware'
-'Serial number'
-'Model name'
-'CPU'
-'Total physical memory'
-'Network'
-'MAC address'
-'IP address'
-'Time'
-'System time'
-'Uptime'
+FIELD=(
+'Basic Information:'
+'Server name:'
+'DSM version:'
+'Hardware:'
+'Serial number:'
+'Model name:'
+'CPU:'
+'Total physical memory:'
+'Network:'
+'MAC address:'
+'IP address:'
+'Time:'
+'System time:'
+'Uptime:'
 )
 
-printf '%s\n' "${FIELDS[@]}"
+# printf '%s\n' "${FIELD[@]}"
+
+# Fully-qualified domain name
+
+host() {
+
+  host=$(hostname -f)
+    printf "%s\n" "${FIELD[2]} $host"
+}
+
+main() {
+
+  host
+}
+
+main "$@"
