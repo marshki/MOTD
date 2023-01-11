@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Select Synology system information.
+# Synology system information.
 
 FIELD=(
 'Basic Information'
@@ -29,10 +29,19 @@ host() {
     printf "%s\n" "${FIELD[1]} $host"
 }
 
+# Extract DSM product version.
+
+dsm_version() {
+
+  dsm=$(awk -F '"' 'NR==6 {print $2}' /etc.defaults/VERSION)
+    printf "%s\n" "${FIELD[2]} $dsm"
+}
+
 main() {
 
   printf "%s\n" "${FIELD[0]}"
   host
+  dsm_version
 }
 
 main "$@"
