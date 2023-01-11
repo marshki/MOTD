@@ -18,6 +18,7 @@ FIELD=(
 'Uptime:'
 )
 
+# Print elements of array
 # printf '%s\n' "${FIELD[@]}"
 
 # Fully-qualified domain name
@@ -25,11 +26,12 @@ FIELD=(
 host() {
 
   host=$(hostname -f)
-    printf "%s\n" "${FIELD[2]} $host"
+    printf "%s\n" "${FIELD[1]} $host"
 }
 
 main() {
 
+  printf "%s\n" "${FIELD[0]}"
   host
 }
 
