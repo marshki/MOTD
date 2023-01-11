@@ -2,20 +2,20 @@
 # Select Synology system information.
 
 FIELD=(
-'Basic Information:'
-'Server name:'
-'DSM version:'
-'Hardware:'
-'Serial number:'
-'Model name:'
-'CPU:'
-'Total physical memory:'
-'Network:'
-'MAC address:'
-'IP address:'
-'Time:'
-'System time:'
-'Uptime:'
+'Basic Information'
+'Server name'
+'DSM version'
+'Hardware'
+'Serial number'
+'Model name'
+'CPU'
+'Total physical memory'
+'Network'
+'MAC address'
+'IP address'
+'Time'
+'System time'
+'Uptime'
 )
 
 # Print elements of array
