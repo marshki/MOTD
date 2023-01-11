@@ -3,19 +3,19 @@
 
 FIELD=(
 'Basic Information'
-'Server name'
-'DSM version'
+'Server name:'
+'DSM version:'
 'Hardware'
-'Serial number'
-'Model name'
-'CPU'
-'Total physical memory'
+'Serial number:'
+'Model name:'
+'CPU:'
+'Total physical memory:'
 'Network'
-'MAC address'
-'IP address'
+'MAC address:'
+'IP address:'
 'Time'
-'System time'
-'Uptime'
+'System time:'
+'Uptime:'
 )
 
 # Print elements of array
