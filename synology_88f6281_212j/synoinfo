@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Select Synology system information.
+
+FIELDS=(
+Basic Information
+Server name
+DSM version
+Hardware
+Serial number
+Model name
+CPU
+Total physical memory
+Network
+MAC address
+IP address
+Time
+System Time
+Uptime
+)
