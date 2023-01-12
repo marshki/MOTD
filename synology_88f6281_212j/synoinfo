@@ -68,6 +68,8 @@ cpu_info() {
     printf "%s\n" "${FIELD[6]} $cpu"
 }
 
+# Main.
+
 main() {
 
   printf "%s\n" "${FIELD[0]}"
