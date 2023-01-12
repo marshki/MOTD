@@ -45,6 +45,14 @@ serial_number() {
     printf "%s\n" "${FIELD[4]} $serial"
 }
 
+model_name() {
+
+  # cat file
+  
+  model=$(cat /proc/sys/kernel/syno_hw_version)
+    printf "%s\n" "${FIELD[5]} $model"
+}
+
 main() {
 
   printf "%s\n" "${FIELD[0]}"
@@ -52,6 +60,7 @@ main() {
   dsm_version
   printf "%s\n" "${FIELD[3]}"
   serial_number  
+  model_name
 }
 
 main "$@"
