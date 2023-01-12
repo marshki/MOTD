@@ -37,12 +37,12 @@ dsm_version() {
     printf "%s\n" "${FIELD[2]} $dsm"
 }
 
+# Synology serial no.
+
 serial_number() {
 
-  # cat file
-
   serial=$(cat /proc/sys/kernel/syno_serial)
-    printf "%s\n" "${FIELD[4]} $serial_number"
+    printf "%s\n" "${FIELD[4]} $serial"
 }
 
 main() {
