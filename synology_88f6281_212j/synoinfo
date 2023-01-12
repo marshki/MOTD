@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 # Synology system information.
+# Sample output: 
+# Basic Information
+# Server name: constantinople
+# DSM version: 7.1.1
+# Hardware
+# Serial number: 1860P5N072600
+# Model name: RS18017xs+
+# CPU: Intel(R) Xeon(R) CPU D-1531 @ 2.20GHz
+
+# Field array.
 
 FIELD=(
 'Basic Information'
@@ -50,14 +60,23 @@ model_name() {
     printf "%s\n" "${FIELD[5]} $model"
 }
 
+# Extract CPU model name.
+
+cpu_info() {
+
+  cpu=$(awk '/model name/ || /Processor/ { sub(/^.*: /, ""); print; exit}' /proc/cpuinfo)
+    printf "%s\n" "${FIELD[6]} $cpu"
+}
+
 main() {
 
   printf "%s\n" "${FIELD[0]}"
   host
   dsm_version
   printf "%s\n" "${FIELD[3]}"
-  serial_number  
+  serial_number
   model_name
+  cpu_info
 }
 
 main "$@"
