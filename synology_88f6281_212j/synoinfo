@@ -18,9 +18,6 @@ FIELD=(
 'Uptime:'
 )
 
-# Print elements of array
-# printf '%s\n' "${FIELD[@]}"
-
 # Fully-qualified domain name
 
 host() {
@@ -45,9 +42,9 @@ serial_number() {
     printf "%s\n" "${FIELD[4]} $serial"
 }
 
-model_name() {
+# Synology model name.
 
-  # cat file
+model_name() {
   
   model=$(cat /proc/sys/kernel/syno_hw_version)
     printf "%s\n" "${FIELD[5]} $model"
