@@ -37,11 +37,21 @@ dsm_version() {
     printf "%s\n" "${FIELD[2]} $dsm"
 }
 
+serial_number() {
+
+  # cat file
+
+  serial=$(cat /proc/sys/kernel/syno_serial)
+    printf "%s\n" "${FIELD[4]} $serial_number"
+}
+
 main() {
 
   printf "%s\n" "${FIELD[0]}"
   host
   dsm_version
+  printf "%s\n" "${FIELD[3]}"
+  serial_number  
 }
 
 main "$@"
