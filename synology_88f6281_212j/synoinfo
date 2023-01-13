@@ -27,6 +27,7 @@ FIELD=(
 'Time'
 'System time:'
 'Uptime:'
+'----------'
 )
 
 # Fully-qualified domain name
@@ -82,14 +83,17 @@ memory() {
 main() {
 
   printf "%s\n" "${FIELD[0]}"
+  printf "%s\n" "${FIELD[14]}"
   host
   dsm_version
   printf "%s\n" "${FIELD[3]}"
+  printf "%s\n" "${FIELD[14]}"
   serial_number
   model_name
   cpu_info
   memory
   printf "%s\n" "${FIELD[8]}"
+  printf "%s\n" "${FIELD[14]}"
  
 }
 
