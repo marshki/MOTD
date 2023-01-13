@@ -89,6 +89,8 @@ main() {
   model_name
   cpu_info
   memory
+  printf "%s\n" "${FIELD[8]}"
+ 
 }
 
 main "$@"
