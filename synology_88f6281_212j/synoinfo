@@ -68,6 +68,14 @@ cpu_info() {
     printf "%s\n" "${FIELD[6]} $cpu"
 }
 
+# Total memory (gB) using kB to gB conversion.
+
+memory() {
+
+  gB=$(awk '/MemTotal/ {print $2/1024/1024}' /proc/meminfo)
+    printf "%s\n" "${FIELD[7]} $gB gB"
+}
+
 # Main.
 
 main() {
@@ -79,6 +87,7 @@ main() {
   serial_number
   model_name
   cpu_info
+  memory
 }
 
 main "$@"
