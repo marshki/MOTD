@@ -22,15 +22,15 @@ Sample output:
                             (o o)  _ _/
                            ==\o/== 
 
-HOSTNAME(FQDN)................: pipy
-LAST LOGIN....................: pi pts/0 172.22.114.145 Tue Feb 7 16:40 still logged in
-UPTIME........................: 373 days 11
-LOAD AVGS.....................: 0.11, 0.18, 0.17 (1 min 5 mins 15 mins)
-RUNNING PROCESSES.............: 84 (total)
-MEMORY USAGE..................: 0 0 (used unused)
-DISK USAGE....................: 7.6G 3.5G 3.8G 49% (size used avail capacity)
-IP ADDRESS....................: 172.22.114.85 
-MAC ADDRESS...................: b8:27:eb:05:6a:c7
+    HOSTNAME(FQDN)................: pipy
+    LAST LOGIN....................: pi pts/0 172.22.114.145 Tue Feb 7 16:40 still logged in
+    UPTIME........................: 373 days 11
+    LOAD AVGS.....................: 0.11, 0.18, 0.17 (1 min 5 mins 15 mins)
+    RUNNING PROCESSES.............: 84 (total)
+    MEMORY USAGE..................: 0 0 (used unused)
+    DISK USAGE....................: 7.6G 3.5G 3.8G 49% (size used avail capacity)
+    IP ADDRESS....................: 172.22.114.85 
+    MAC ADDRESS...................: b8:27:eb:05:6a:c7
 
 ## Getting Started 
 
