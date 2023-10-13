@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-last_login(){
+last_login() {
   # last login
   # print second line of last command
   # strip out sequence of repeated characters (' ', i.e. whitespace)
