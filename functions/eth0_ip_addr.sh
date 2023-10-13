@@ -4,7 +4,7 @@
 case $(uname -s) in
 Darwin)
   
-  # get IP address for eth0 (primary) in macOS. 
+  # get IP address for eth0 (primary) in macOS.
   eth0=$(ipconfig getifaddr en0)
 
   printf "%s\n" "$eth0"
@@ -28,4 +28,3 @@ Linux)
   printf "%s\n" "He can't handle your speed, $(uname -s)"
   ;;
 esac
-
