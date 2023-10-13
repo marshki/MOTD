@@ -15,14 +15,14 @@
 ##############
 
 HEADR=(
-"HOSTNAME(FQDN)" 
-"LAST LOGIN" 
+"HOSTNAME(FQDN)"
+"LAST LOGIN"
 UPTIME 
-"LOAD AVGS." 
-"RUNNING PROCESSES" 
-"MEMORY USAGE" 
-"DISK USAGE" 
-"IP ADDRESS" 
+"LOAD AVGS."
+"RUNNING PROCESSES"
+"MEMORY USAGE"
+"DISK USAGE"
+"IP ADDRESS"
 "MAC ADDRESS")
 
 ###########
@@ -65,9 +65,9 @@ printf '
 '
 }
 
-dot(){
+dot() {
   # shellcheck disable=SC2183
-  # print horizontal line of characters 
+  # print horizontal line of characters
 
   printf '%*s\n' "${1:-$:COLUMNS}" | tr ' ' "${2:-#}"
 }
