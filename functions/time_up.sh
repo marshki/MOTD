@@ -1,7 +1,7 @@
 #!/usr/bin/env bash  
 # uptime: days hours:minutes 
 
-time_up(){ 
+time_up() { 
   # uptime
   # strip commas, then print columns 3,4,5 
     
