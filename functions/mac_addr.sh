@@ -1,5 +1,5 @@
-#!/usr/bin/env bash 
-# Check OS; return primary MAC 
+#!/usr/bin/env bash
+# Check OS; return primary MAC
   
 case $(uname -s) in
 Darwin)
@@ -18,7 +18,7 @@ Linux)
   # get MACADDR for primary in Linux 
   # ip addr for eth0, then awk to match ether and extract
 
-  mac=$(ip addr show eth0 |awk '/ether/{print $2}')  
+  mac=$(ip addr show eth0 |awk '/ether/{print $2}')
   
   printf "%s\\n" "$mac"
   ;;
