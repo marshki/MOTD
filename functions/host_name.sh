@@ -2,7 +2,7 @@
 # Fully-qualified domain name (FQDN).
 
 
-host_name(){
+host_name() {
   # FQDN.
   
   host=$(hostname -f)
