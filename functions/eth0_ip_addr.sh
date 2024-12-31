@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Check OS and return primary IP.
+# Check OS and return primary IP address.
   
 case $(uname -s) in
 Darwin)
@@ -8,7 +8,7 @@ Darwin)
   printf "%s\n" "$eth0"
   ;;
 Linux)
-  # get IP address for eth0 (primary) in GNU/Linux
+  # get all IP address then awk to print first line in GNU/Linux
   hostname --all-ip-addresses |awk '{printf $1}'
   printf "%s\n" "$eth0"
   ;;
