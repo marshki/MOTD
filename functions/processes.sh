@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Total # of running processes.
+# Total no. of running processes.
 
 processes() {
   # ps all user's processes
