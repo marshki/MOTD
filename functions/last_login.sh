@@ -2,9 +2,9 @@
 # Last logged in user.
 
 last_login() {
-  # print second line of last command
+  # print first line of last command
   # strip out sequence of repeated characters (' ', i.e. whitespace)
-  last_log=$(last | awk 'NR==2'|tr -s ' ')
+  last_log=$(last | awk 'NR==1'|tr -s ' ')
   printf "%s\n" "$last_log"
 }
 
