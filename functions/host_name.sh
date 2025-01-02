@@ -4,7 +4,7 @@
 host_name() {
   # FQDN
   host=$(hostname -f)
-  printf "%s\\n" "$host (FQDN)"
+  printf "%s\n" "$host (FQDN)"
 }
 
 host_name
