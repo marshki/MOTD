@@ -34,9 +34,6 @@ Sample output:
 
 ## Getting Started 
 
-**In CentOS:** place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d` 
-and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh`  
-
 **In Debian:** place `motd.sh` in: `/etc/profile.d` with: `cp -v motd.sh /etc/profile.d`
 and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh` 
 
