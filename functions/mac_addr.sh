@@ -10,7 +10,7 @@ Darwin)
   printf "%s\n" "$mac"
   ;;
 Linux)
-  # get MACADDR for primary in Linux
+  # get MACADDR for primary in GNU/Linux
   # ip addr for eth0, then awk to match ether and extract
   mac=$(ip addr show eth0 |awk '/ether/{print $2}')
   printf "%s\n" "$mac"
