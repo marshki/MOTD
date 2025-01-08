@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# uptime: days hours:minutes
-# e.g.: "1 day, HH:MM" or: "HH:MM"
+# Uptime: days hours:minutes
+# e.g.: "1 day, HH:MM" or: "HH:MM".
 
 time_up() {
   # uptime
