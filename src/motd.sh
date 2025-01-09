@@ -3,10 +3,8 @@
 # motd
 #
 # Message of the day (MOTD) for interactive shells in BSD & GNU/Linux.
-# For wired rigs @ NYU's:
-# - Center for Brain Imaging
-# - Center for Neural Science
-# - Department of Psychology
+# For wired rigs @ NYU's: Center for Brain Imaging, Center for Neural Science,
+# & Department of Psychology.
 #
 # Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
 #
@@ -41,7 +39,7 @@ last_login=$(last | awk 'NR==1' | tr -s ' ')
 # uptime: days hours:minutes
 time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
 
-# load avgs. over the past 1,5,15 min. intvls.
+# load avgs. over the past 1,5,15 min. intervals
 load_avg=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
  
 # running processes
@@ -53,35 +51,35 @@ disk_usg=$(df -H | awk '$NF == "/" {print $2,$3,$4,$5}')
 ###########
 # FUNCTIONS
 ###########
-
+  
+# Print the MOTD header with appropriate values
 print_header() {
-  # Print the MOTD header with appropriate values
   local title=$1
   local value=$2
   printf -- '%.30s: %s\n' "${title}$(dot 30 .)" "${value}"
 }
-
+  
+# ASCII mouse w/text box, centered
 maus() {
-  # ASCII mouse w/text box, centered 
 printf '
                              )            
                             (__        -----------------------
                             _  )_      < CBI//CNS//PSYCH TEK >
                            (_)_(_)     -----------------------
                             (o o)  _ _/
-                           ==\o/== 
+                           ==\o/==
 
 '
 }
 
+# Print horizontal line of characters
+# shellcheck disable=SC2183
 dot() {
-  # shellcheck disable=SC2183
-  # print horizontal line of characters
-  printf '%*s\n' "${1:-$:COLUMNS}" | tr ' ' "${2:-#}"
+    printf '%*s\n' "${1:-$:COLUMNS}" | tr ' ' "${2:-#}"
 }
 
 #################
-# Meat & Potatoes 
+# Meat & Potatoes
 #################
 
 # Suppress last login for macOS
