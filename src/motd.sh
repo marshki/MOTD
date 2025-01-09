@@ -36,7 +36,7 @@ UPTIME
 host_name=$(hostname -f)
 
 # last login
-last_log=$(last | awk 'NR==1'|tr -s ' ')
+last_login=$(last | awk 'NR==1'|tr -s ' ')
 
 # uptime: days hours:minutes
 time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
@@ -116,7 +116,7 @@ esac
 maus
 
 print_header "${HEADR[0]}" "${host_name}"
-print_header "${HEADR[1]}" "${last_log}"
+print_header "${HEADR[1]}" "${last_login}"
 print_header "${HEADR[2]}" "${time_up}"
 print_header "${HEADR[3]}" "${load_avg} (1 min 5 mins 15 mins)"
 print_header "${HEADR[4]}" "${procs} (total)"
