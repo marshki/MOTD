@@ -48,7 +48,7 @@ load_avg=$(uptime |awk '{ sub(/^.*: /, ""); print; }')
 procs=$(ps ax | wc -l | tr -d " ")
  
 # disk stats: size used avail. capacity in GBs
-disk_usg=$(df -Ha | awk 'FNR == 2 {print $2,$3,$4,$5}')
+disk_usg=$(df -H | awk '$NF == "/" {print $2,$3,$4,$5}')
 
 ###########
 # FUNCTIONS
