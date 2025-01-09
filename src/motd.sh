@@ -98,7 +98,7 @@ Darwin)
   # MAC address
   macaddr=$(ifconfig en0 | awk '/ether/{print $2}')
  ;;
-GNU/Linux)
+Linux)
   # Memory free/used
   mem=$(free -g |awk 'FNR==2 {print $3, $4}')
  
