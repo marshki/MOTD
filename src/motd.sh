@@ -3,7 +3,10 @@
 # motd
 #
 # Message of the day (MOTD) for interactive shells in BSD & GNU/Linux.
-# For wired rigs @ NYU's Center for Brain Imaging, Center for Neural Science, and Department of Psychology.
+# For wired rigs @ NYU's:
+# - Center for Brain Imaging
+# - Center for Neural Science
+# - Department of Psychology
 #
 # Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
 #
