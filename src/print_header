@@ -1,6 +1,0 @@
-print_header() {
-  # Print the MOTD header with appropriate values
-  local title=$1
-  local value=$2
-  printf -- '%.30s: %s\n' "${title}$(dot 30 .)" "${value}"
-}
