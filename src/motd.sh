@@ -84,11 +84,11 @@ dot() {
 # Meat & Potatoes 
 #################
 
+# Suppress last login for macOS
+[ "$(uname -s)" = "Darwin" ] && touch ~/.hushlogin
+
 case $(uname -s) in
 Darwin)
-  # suppress last login by creating .hushlogin file
-  touch ~/.hushlogin
-
   # Memory free/used
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
 
@@ -97,44 +97,30 @@ Darwin)
 
   # MAC address
   macaddr=$(ifconfig en0 | awk '/ether/{print $2}')
-  
-  maus
-  
-  printf -- '%.30s: %s\n' "${HEADR[0]}$(dot 30 .)" "${host_name}"
-  printf -- '%.30s: %s\n' "${HEADR[1]}$(dot 30 .)" "${last_log}"
-  printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up}"
-  printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
-  printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
-  printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (used unused)"
-  printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
-  printf -- '%.30s: %s\n' "${HEADR[7]}$(dot 30 .)" "${eth0}"
-  printf -- '%.30s: %s\n' "${HEADR[8]}$(dot 30 .)" "${macaddr}"
-;;
-
-Linux)
+ ;;
+GNU/Linux)
   # Memory free/used
   mem=$(free -g |awk 'FNR==2 {print $3, $4}')
  
   # get IP address for eth0 (primary)
   eth0=$(ip route get 1 | awk '{print $NF;exit}')
  
-  # MAC ADDRESS
+  # MAC address
   macaddr=$(ip addr show eth0 |awk '/ether/{print $2}')
- 
-  maus
-
-  printf -- '%.30s: %s\n' "${HEADR[0]}$(dot 30 .)" "${host_name}"
-  printf -- '%.30s: %s\n' "${HEADR[1]}$(dot 30 .)" "${last_log}"
-  printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up}"
-  printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
-  printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
-  printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (used unused)"
-  printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
-  printf -- '%.30s: %s\n' "${HEADR[7]}$(dot 30 .)" "${eth0}"
-  printf -- '%.30s: %s\n' "${HEADR[8]}$(dot 30 .)" "${macaddr}"
-;;
-
+ ;;
 *)
-  printf "%s\\n" "He can't handle your speed $(uname -s)"
-;; 
+  printf "%s\n" "Unsupported OS: $(uname -s)"
+;;
 esac
+
+maus
+
+print_header "${HEADR[0]}" "${host_name}"
+print_header "${HEADR[1]}" "${last_log}"
+print_header "${HEADR[2]}" "${time_up}"
+print_header "${HEADR[3]}" "${load_avg} (1 min 5 mins 15 mins)"
+print_header "${HEADR[4]}" "${procs} (total)"
+print_header "${HEADR[5]}" "${mem} (used unused)"
+print_header "${HEADR[6]}" "${disk_usg} (size used avail capacity)"
+print_header "${HEADR[7]}" "${eth0}"
+print_header "${HEADR[8]}" "${macaddr}"
