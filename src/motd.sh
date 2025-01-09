@@ -20,7 +20,7 @@
 HEADR=(
 "HOSTNAME(FQDN)"
 "LAST LOGIN"
-UPTIME 
+UPTIME
 "LOAD AVGS."
 "RUNNING PROCESSES"
 "MEMORY USAGE"
@@ -54,9 +54,15 @@ disk_usg=$(df -H | awk '$NF == "/" {print $2,$3,$4,$5}')
 # FUNCTIONS
 ###########
 
+print_header() {
+  # Print the MOTD header with appropriate values
+  local title=$1
+  local value=$2
+  printf -- '%.30s: %s\n' "${title}$(dot 30 .)" "${value}"
+}
+
 maus() {
   # ASCII mouse w/text box, centered 
-
 printf '
                              )            
                             (__        -----------------------
@@ -71,7 +77,6 @@ printf '
 dot() {
   # shellcheck disable=SC2183
   # print horizontal line of characters
-
   printf '%*s\n' "${1:-$:COLUMNS}" | tr ' ' "${2:-#}"
 }
 
@@ -80,7 +85,6 @@ dot() {
 #################
 
 case $(uname -s) in
-
 Darwin)
   # suppress last login by creating .hushlogin file
   touch ~/.hushlogin
