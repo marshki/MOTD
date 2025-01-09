@@ -36,13 +36,13 @@ UPTIME
 host_name=$(hostname -f)
 
 # last login
-last_login=$(last | awk 'NR==1'|tr -s ' ')
+last_login=$(last | awk 'NR==1' | tr -s ' ')
 
 # uptime: days hours:minutes
 time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
 
 # load avgs. over the past 1,5,15 min. intvls.
-load_avg=$(uptime |awk '{ sub(/^.*: /, ""); print; }')
+load_avg=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
  
 # running processes
 procs=$(ps ax | wc -l | tr -d " ")
@@ -103,7 +103,7 @@ Linux)
   mem=$(free -g |awk 'FNR==2 {print $3, $4}')
  
   # get IP address for eth0 (primary)
-  eth0=$(ip route get 1 | awk '{print $NF;exit}')
+  eth0=$(hostname --all-ip-addresses |awk '{printf $1}')
  
   # MAC address
   macaddr=$(ip addr show eth0 |awk '/ether/{print $2}')
