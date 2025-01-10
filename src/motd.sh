@@ -37,15 +37,7 @@ host_name=$(hostname -f)
 last_login=$(last | awk 'NR==1' | tr -s ' ')
 
 # uptime: days hours:minutes
-# time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
-time_up() {
-  local uptime_info=$(uptime | sed 's/,//g')
-  if [[ "$uptime_info" == *"day"* ]]; then
-    printf "%s\n" "$uptime_info" | awk '{ print $3, $4, $5 }'
-  else
-    printf "%s\n" "$uptime_info" | awk '{ print $3 }'
-  fi
-}
+time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
 
 # load avgs. over the past 1,5,15 min. intervals
 load_avg=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
