@@ -7,7 +7,7 @@ Darwin)
   # top sample once, delay 0 secs
   # awk regex, return columns 2,6
   # --> KiB is returned in truncated format, which can throw off results <--
-  memory=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$8}')
+  memory=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2, $8}')
   printf "%s\n" "$memory (total available)"
   ;;
 Linux)
