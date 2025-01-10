@@ -98,7 +98,7 @@ Darwin)
  ;;
 Linux)
   # Memory free/used
-  mem=$(free -g |awk 'FNR==2 {print $3, $4}')
+  mem=$(free --human |awk 'FNR==2 {print $2, $7}')
  
   # get IP address for eth0 (primary)
   eth0=$(hostname --all-ip-addresses |awk '{printf $1}')
@@ -118,7 +118,7 @@ print_header "${HEADR[1]}" "${last_login}"
 print_header "${HEADR[2]}" "${time_up}"
 print_header "${HEADR[3]}" "${load_avg} (1 min 5 mins 15 mins)"
 print_header "${HEADR[4]}" "${procs} (total)"
-print_header "${HEADR[5]}" "${mem} (used unused)"
+print_header "${HEADR[5]}" "${mem} (total available)"
 print_header "${HEADR[6]}" "${disk_usg} (size used avail capacity)"
 print_header "${HEADR[7]}" "${eth0}"
 print_header "${HEADR[8]}" "${macaddr}"
