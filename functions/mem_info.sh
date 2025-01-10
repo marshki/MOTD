@@ -13,7 +13,7 @@ Darwin)
 Linux)
   # memory stats: total unused
   # free, then awk second row, print columns 3,4
-  memory=$(free --human |awk 'FNR==2 {print $2, $6}')
+  memory=$(free --human |awk 'FNR==2 {print $2, $7}')
   printf "%s\n" "$memory (total unused)"
   ;;
 *)
