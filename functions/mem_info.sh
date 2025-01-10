@@ -7,14 +7,14 @@ Darwin)
   # top sample once, delay 0 secs
   # awk regex, return columns 2,6
   # --> KiB is returned in truncated format, which can throw off results <--
-  memory=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
-  printf "%s\n" "$memory (total unused)"
+  memory=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$8}')
+  printf "%s\n" "$memory (total available)"
   ;;
 Linux)
   # memory stats: total unused
   # free, then awk second row, print columns 3,4
   memory=$(free --human |awk 'FNR==2 {print $2, $7}')
-  printf "%s\n" "$memory (total unused)"
+  printf "%s\n" "$memory (total available)"
   ;;
 *)
   printf "%s\n" "He can't handle your speed, $(uname -s)"
