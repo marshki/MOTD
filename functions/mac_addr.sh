@@ -19,3 +19,10 @@ Linux)
   printf "%s\n" "He can't handle your speed, $(uname -s)"
   ;;
 esac
+
+
+# Alternative approach
+# GNU/Linux
+ip link | awk '/ether/ {print $2; exit}'
+# macOS
+ifconfig | awk '/ether/ {print $2; exit}'
