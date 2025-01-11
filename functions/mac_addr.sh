@@ -26,3 +26,11 @@ esac
 ip link | awk '/ether/ {print $2; exit}'
 # macOS
 ifconfig | awk '/ether/ {print $2; exit}'
+# and then: 
+macaddr=$(
+  if [[ "$(uname -s)" == "Darwin" ]]; then
+    ifconfig | awk '/ether/ {print $2; exit}'
+  else
+    ip link | awk '/ether/ {print $2; exit}'
+  fi
+)
