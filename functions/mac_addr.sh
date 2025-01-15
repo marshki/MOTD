@@ -8,7 +8,7 @@ macaddr=$(
     if [[ -n "$primary_if" ]]; then
       ifconfig "$primary_if" | awk '/ether/ {print $2}'
     else
-      echo "Error: No primary interface found."
+      printf "%s\n" "Error: No primary interface found."
     fi
   else
     # Linux: Get primary active interface and its MAC address
@@ -16,7 +16,7 @@ macaddr=$(
     if [[ -n "$primary_if" ]]; then
       ip addr show "$primary_if" | awk '/ether/ {print $2}'
     else
-      echo "Error: No primary interface found."
+      printf "%s\n" "Error: No primary interface found."
     fi
   fi
 )
