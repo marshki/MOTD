@@ -3,7 +3,7 @@
   
 macaddr=$(
   if [[ "$(uname -s)" == "Darwin" ]]; then
-    # macOS: Get primary active interface and its MAC address
+    # macOS: Get the MAC address of the primary active interface
     primary_if=$(route -n get default 2>/dev/null | awk -F': ' '/interface:/ {print $2}')
     if [[ -n "$primary_if" ]]; then
       ifconfig "$primary_if" | awk '/ether/ {print $2}'
@@ -11,7 +11,7 @@ macaddr=$(
       printf "%s\n" "Error: No primary interface found."
     fi
   else
-    # Linux: Get primary active interface and its MAC address
+    # GNU/Linux: Get the MAC address of the primary active interface
     primary_if=$(ip route | awk '/default/ {print $5}' | head -n1)
     if [[ -n "$primary_if" ]]; then
       ip addr show "$primary_if" | awk '/ether/ {print $2}'
