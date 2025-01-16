@@ -3,12 +3,11 @@
 # motd
 #
 # Message of the day (MOTD) for interactive shells in BSD & GNU/Linux.
-# For wired rigs @ NYU's: Center for Brain Imaging, Center for Neural Science,
-# & Department of Psychology.
+# For wired rigs @ NYU.
 #
 # Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
 #
-# Date: 2018.09.28
+# Date: 2024.01.16
 # License MIT
 
 ##############
@@ -27,42 +26,24 @@ UPTIME
 "MAC ADDRESS")
 
 ###########
-# Variables
+# Functions
 ###########
 
-# fully-qualified domain name
-host_name=$(hostname -f)
+time_up() {
+  # Parse uptime to handle both 'day' and non-'day' cases
+  local uptime_info
+  uptime_info=$(uptime | sed 's/,//g')
 
-# last login
-last_login=$(last | awk 'NR==1' | tr -s ' ')
-
-# uptime: days hours:minutes
-time_up=$(uptime | sed 's/,//g' | awk '{ print $3,$4,$5}')
-
-# load avgs. over the past 1,5,15 min. intervals
-load_avg=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
- 
-# running processes
-procs=$(ps ax | wc -l | tr -d " ")
- 
-# disk stats: size used avail. capacity in GBs
-disk_usg=$(df -H | awk '$NF == "/" {print $2,$3,$4,$5}')
-
-###########
-# FUNCTIONS
-###########
-  
-# Print the MOTD header with appropriate values
-print_header() {
-  local title=$1
-  local value=$2
-  printf -- '%.30s: %s\n' "${title}$(dot 30 .)" "${value}"
+  printf "%s\n" "$uptime_info" | awk '
+    / day/ { print $3, $4, $5 }
+    !/ day/ { print $3 }
+  '
 }
-  
-# ASCII mouse w/text box, centered
+
 maus() {
-printf '
-                             )            
+  # ASCII mouse w/text box, centered
+  printf '
+                             )
                             (__        -----------------------
                             _  )_      < CBI//CNS//PSYCH TEK >
                            (_)_(_)     -----------------------
@@ -72,53 +53,74 @@ printf '
 '
 }
 
-# Print horizontal line of characters
-# shellcheck disable=SC2183
 dot() {
-    printf '%*s\n' "${1:-$:COLUMNS}" | tr ' ' "${2:-#}"
+  # Print a horizontal line of characters
+  printf '%*s\n' "${1:-${COLUMNS}}" | tr ' ' "${2:-#}"
 }
+
+###########
+# Variables
+###########
+
+# Fully-qualified domain name
+host_name=$(hostname -f)
+
+# Last login
+last_log=$(last | awk 'NR==1' | tr -s ' ')
+
+# Uptime
+time_up_result=$(time_up)
+
+# Load averages
+load_avg=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
+
+# Running processes
+procs=$(ps ax | wc -l | tr -d " ")
+
+# Memory usage
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
+else
+  mem=$(free -g | awk 'FNR==2 {print $3, $4}')
+fi
+
+# Disk usage
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  disk_usg=$(df -h | awk '$NF == "/" {print $2, $3, $4, $5}')
+else
+  disk_usg=$(df -h --output=size,used,avail,pcent,target | awk '$5 == "/" {print $1, $2, $3, $4}')
+fi
+
+# IP address
+eth0=$(hostname --all-ip-addresses | awk '{printf $1}')
+
+# MAC address
+macaddr=$(
+  case $(uname -s) in
+  Darwin)
+    ifconfig | awk '/ether/ {print $2; exit}'
+    ;;
+  Linux)
+    ip link | awk '/ether/ {print $2; exit}'
+    ;;
+  *)
+    echo "Unknown"
+    ;;
+  esac
+)
 
 #################
 # Meat & Potatoes
 #################
 
-# Suppress last login for macOS
-[ "$(uname -s)" = "Darwin" ] && touch ~/.hushlogin
-
-case $(uname -s) in
-Darwin)
-  # Memory free/used
-  mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
-
-  # IP address
-  eth0=$(ipconfig getifaddr en0)
-
-  # MAC address
-  macaddr=$(ifconfig | awk '/ether/ {print $2; exit}')
- ;;
-Linux)
-  # Memory free/used
-  mem=$(free --human |awk 'FNR==2 {print $2, $7}')
- 
-  # get IP address for eth0 (primary)
-  eth0=$(hostname --all-ip-addresses |awk '{printf $1}')
- 
-  # MAC address
-  macaddr=$(ip link | awk '/ether/ {print $2; exit}')
- ;;
-*)
-  printf "%s\n" "Unsupported OS: $(uname -s)"
-;;
-esac
-
 maus
 
-print_header "${HEADR[0]}" "${host_name}"
-print_header "${HEADR[1]}" "${last_login}"
-print_header "${HEADR[2]}" "${time_up}"
-print_header "${HEADR[3]}" "${load_avg} (1 min 5 mins 15 mins)"
-print_header "${HEADR[4]}" "${procs} (total)"
-print_header "${HEADR[5]}" "${mem} (total available)"
-print_header "${HEADR[6]}" "${disk_usg} (size used avail capacity)"
-print_header "${HEADR[7]}" "${eth0}"
-print_header "${HEADR[8]}" "${macaddr}"
+printf -- '%.30s: %s\n' "${HEADR[0]}$(dot 30 .)" "${host_name}"
+printf -- '%.30s: %s\n' "${HEADR[1]}$(dot 30 .)" "${last_log}"
+printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up_result}"
+printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
+printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (used unused)"
+printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
+printf -- '%.30s: %s\n' "${HEADR[7]}$(dot 30 .)" "${eth0}"
+printf -- '%.30s: %s\n' "${HEADR[8]}$(dot 30 .)" "${macaddr}"
