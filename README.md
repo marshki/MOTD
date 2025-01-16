@@ -33,24 +33,28 @@ Sample output:
     MAC ADDRESS...................: b8:27:eb:05:6a:c7
 
 ## Getting Started 
+A note about: 
 
-**In Debian:**
+**motd**: A read-only file, located at: `/etc/motd`.
 
-**In macOS:**
+**motd.sh**: An executable shell script, placed in `/etc/profile.d`.
+
+You may need to logout/login, or open a new terminal for the change to take effect.
+
+**In Debian, Ubuntu:**:
+
+**In macOS (per user)**:
 
 Place `motd.sh` in: `.bash_profile`, e.g.: `cat motd.sh >> ~/.bash_profile`.
 
 Source the file: `source ~/.bash_profile`.
 
-Log out/in or open a new terminal.
 
-**In Red Hat Enterprise Linux (RHEL):**
+**In Red Hat Enterprise Linux (RHEL) (global)**:
 
 Place `motd.sh` in: `/etc/profile.d`, e.g.: `cp -v motd.sh > /etc/profile.d/`.
 
-Log out/in or open a new terminal.
-
-**In Ubuntu:** 
+Set permisisons on the file: `chmod 755 /etc/profile.d/motd.sh`.
 
 ## History 
 v.0.1 14-JUN-2018
