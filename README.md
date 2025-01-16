@@ -6,14 +6,16 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-Drop-in Bash script for a [message-of-the day](https://en.wikipedia.org/wiki/Motd_(Unix)) in an interactive shell. 
+Drop-in Bash script for a [message-of-the day](https://en.wikipedia.org/wiki/Motd_(Unix)) in an interactive shell.
 
-Open to all, but tailored to rigs in NYU's departments of [Neural Science](https://as.nyu.edu/departments/cns.html), [Psychology](https://as.nyu.edu/departments/psychology.html), 
-and [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html).
+Open to all, but tailored to rigs in NYU's departments of:
+ - [Neural Science](https://as.nyu.edu/departments/cns.html)
+ - [Psychology](https://as.nyu.edu/departments/psychology.html)
+and:
+ - [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html).
 
 Sample output: 
-
-)
+                             )
                             (__        -----------------------
                             _  )_      < CBI//CNS//PSYCH TEK >
                            (_)_(_)     -----------------------
@@ -49,6 +51,7 @@ and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh`.
 
 ## History 
 v.0.1 14-JUN-2018
+v.0.2 16-JAN-2024
 
 ## License 
 [LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE). 
