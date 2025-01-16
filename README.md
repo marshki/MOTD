@@ -8,7 +8,7 @@
 
 Drop-in Bash script for a [message-of-the day](https://en.wikipedia.org/wiki/Motd_(Unix)) in an interactive shell.
 
-Open to all, but tailored to rigs at New York University (NYU):
+Open to all, but tailored to rigs at New York University's:
  - [Neural Science](https://as.nyu.edu/departments/cns.html)
  - [Psychology](https://as.nyu.edu/departments/psychology.html)
  - [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html).
@@ -55,4 +55,4 @@ v.0.1 14-JUN-2018
 v.0.2 16-JAN-2024
 
 ## License 
-[LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE). 
+[LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE).
