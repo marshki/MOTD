@@ -100,7 +100,7 @@ fi
 
 # MAC address
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  macddr=$(ifconfig | awk '/ether/ {print $2; exit}')
+  macaddr=$(ifconfig | awk '/ether/ {print $2; exit}')
 else
   macaddr=$(ip link | awk '/ether/ {print $2; exit}')
 fi
