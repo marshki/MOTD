@@ -13,7 +13,8 @@ Open to all, but tailored to rigs at New York University (NYU):
  - [Psychology](https://as.nyu.edu/departments/psychology.html)
  - [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html).
 
-Sample output: 
+Sample output:
+
                              )
                             (__        -----------------------
                             _  )_      < CBI//CNS//PSYCH TEK >
