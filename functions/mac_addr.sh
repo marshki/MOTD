@@ -1,13 +1,18 @@
 #!/usr/bin/env/bash
-# Detect OS
-# Extract MAC address via awk.
+# Detect OS and Extract MAC address.
 
-macaddr=$(
-  if [[ "$(uname -s)" == "Darwin" ]]; then
-    ifconfig | awk '/ether/ {print $2; exit}'
-  else
-    ip link | awk '/ether/ {print $2; exit}'
-  fi
-)
-
-printf "%s\n" "$macaddr"
+case $(uname -s) in
+Darwin)
+  # awk to extract 'ether' and print 2nd column
+  macaddr=$(ifconfig | awk '/ether/ {print $2; exit}')
+  printf "%s\n" "$macaddr"
+  ;;
+Linux)
+  # awk to extract 'ether' and print 2nd column
+  macaddr=$(ip link | awk '/ether/ {print $2; exit}')
+  printf "%s\n" "$macaddr"
+  ;;
+*)
+  printf "%s\n" "He can't handle your speed, $(uname -s)"
+  ;;
+esac
