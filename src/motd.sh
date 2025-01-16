@@ -94,7 +94,7 @@ Darwin)
   eth0=$(ipconfig getifaddr en0)
 
   # MAC address
-  macaddr=$(ifconfig en0 | awk '/ether/{print $2}')
+  macaddr=$(ifconfig | awk '/ether/ {print $2; exit}')
  ;;
 Linux)
   # Memory free/used
@@ -104,7 +104,7 @@ Linux)
   eth0=$(hostname --all-ip-addresses |awk '{printf $1}')
  
   # MAC address
-  macaddr=$(ip addr show eth0 |awk '/ether/{print $2}')
+  macaddr=$(ip link | awk '/ether/ {print $2; exit}')
  ;;
 *)
   printf "%s\n" "Unsupported OS: $(uname -s)"
