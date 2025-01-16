@@ -39,11 +39,13 @@ Sample output:
 **In macOS:** 
 
 Place `motd.sh` in: `.bash_profile`, e.g.: `cat motd.sh >> ~/.bash_profile`.
-Source the file: `source ~/.bash_profile`. 
+Source the file: `source ~/.bash_profile`.
+Log out/in or open a new terminal.
 
 **In Red Hat Enterprise Linux (RHEL):**
 
-Place `motd.sh` in: cat `/etc/profile.d`, e.g. `cat motd.sh > /etc/profile.d
+Place `motd.sh` in: `/etc/profile.d`, e.g.: `cp -v motd.sh > /etc/profile.d/`.
+Log out/in or open a new terminal.
 
 **In Ubuntu:** 
 
