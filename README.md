@@ -13,22 +13,22 @@ and [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html)
 
 Sample output: 
 
-                             )            
+                             )
                             (__        -----------------------
                             _  )_      < CBI//CNS//PSYCH TEK >
                            (_)_(_)     -----------------------
                             (o o)  _ _/
-                           ==\o/== 
+                           ==\o/==
 
-    HOSTNAME(FQDN)................: pipy
-    LAST LOGIN....................: pi pts/0 172.22.114.145 Tue Feb 7 16:40 still logged in
-    UPTIME........................: 373 days 11
-    LOAD AVGS.....................: 0.11, 0.18, 0.17 (1 min 5 mins 15 mins)
-    RUNNING PROCESSES.............: 84 (total)
-    MEMORY USAGE..................: 0 0 (used unused)
-    DISK USAGE....................: 7.6G 3.5G 3.8G 49% (size used avail capacity)
-    IP ADDRESS....................: 172.22.114.85 
-    MAC ADDRESS...................: b8:27:eb:05:6a:c7
+HOSTNAME(FQDN)................: DYQDR4QGWJ
+LAST LOGIN....................: mjk235 ttys001 10.27.0.162 Thu Jan 16 09:41 still logged in
+UPTIME........................: 53 days 21:17
+LOAD AVGS.....................: 1.60 1.55 1.53 (1 min 5 mins 15 mins)
+RUNNING PROCESSES.............: 659 (total)
+MEMORY USAGE..................: 26G 0B (used unused)
+DISK USAGE....................: 926Gi 10Gi 870Gi 2% (size used avail capacity)
+IP ADDRESS....................: 172.22.114.60
+MAC ADDRESS...................: de:67:5e:d4:9e:84
 
 ## Getting Started 
 
