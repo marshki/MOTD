@@ -50,6 +50,7 @@ and set permissions on the file: `sudo chmod -v 755 /etc/profile.d/motd.sh`.
 
 ## History 
 v.0.1 14-JUN-2018
+
 v.0.2 16-JAN-2024
 
 ## License 
