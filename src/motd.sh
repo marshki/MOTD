@@ -93,7 +93,7 @@ fi
 
 # IP address
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  disk_usg=$(eth0=$(ipconfig getifaddr en0)
+  eth0=$(ipconfig getifaddr en0)
 else
   eth0=$(hostname --all-ip-addresses | awk '{printf $1}')
 fi
