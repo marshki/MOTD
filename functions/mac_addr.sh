@@ -1,5 +1,5 @@
 #!/usr/bin/env/bash
-# Detect OS and Extract MAC address.
+# Detect OS and extract MAC address.
 
 case $(uname -s) in
 Darwin)
