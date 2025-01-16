@@ -21,15 +21,16 @@ Sample output:
                            (_)_(_)     -----------------------
                             (o o)  _ _/
                            ==\o/==
-HOSTNAME(FQDN)................: pywype.psych.nyu.edu
-LAST LOGIN....................: pi pts/0 10.27.0.162 Thu Jan 16 12:10 still logged in
-UPTIME........................: 2 min 1
-LOAD AVGS.....................: 0.78, 0.78, 0.34 (1 min 5 mins 15 mins)
-RUNNING PROCESSES.............: 89 (total)
-MEMORY USAGE..................: 39 41 (used unused)
-DISK USAGE....................: 7.1G 4.0G 2.8G 60% (size used avail capacity)
-IP ADDRESS....................: 172.22.114.85
-MAC ADDRESS...................: b8:27:eb:05:6a:c7
+
+    HOSTNAME(FQDN)................: pywype.psych.nyu.edu
+    LAST LOGIN....................: pi pts/0 10.27.0.162 Thu Jan 16 12:10 still logged in
+    UPTIME........................: 2 min 1
+    LOAD AVGS.....................: 0.78, 0.78, 0.34 (1 min 5 mins 15 mins)
+    RUNNING PROCESSES.............: 89 (total)
+    MEMORY USAGE..................: 39 41 (used unused)
+    DISK USAGE....................: 7.1G 4.0G 2.8G 60% (size used avail capacity)
+    IP ADDRESS....................: 172.22.114.85
+    MAC ADDRESS...................: b8:27:eb:05:6a:c7
 
 ## Getting Started 
 
