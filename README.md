@@ -8,10 +8,9 @@
 
 Drop-in Bash script for a [message-of-the day](https://en.wikipedia.org/wiki/Motd_(Unix)) in an interactive shell.
 
-Open to all, but tailored to rigs in NYU's departments of:
+Open to all, but tailored to rigs at New York University (NYU):
  - [Neural Science](https://as.nyu.edu/departments/cns.html)
  - [Psychology](https://as.nyu.edu/departments/psychology.html)
-and:
  - [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html).
 
 Sample output: 
