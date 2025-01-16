@@ -3,7 +3,7 @@
 # motd
 #
 # Message of the day (MOTD) for interactive shells in BSD & GNU/Linux.
-# For wired rigs @ NYU.
+# For wired rigs @ New York University.
 #
 # Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
 #
@@ -71,20 +71,20 @@ last_log=$(last | awk 'NR==1' | tr -s ' ')
 # Uptime
 time_up_result=$(time_up)
 
-# Load averages
+# Load averages (1 min 5 mins 15 mins)
 load_avg=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
 
-# Running processes
+# Running processes (total)
 procs=$(ps ax | wc -l | tr -d " ")
 
-# Memory usage
+# Memory usage (used, unused)
 if [[ "$(uname -s)" == "Darwin" ]]; then
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
 else
   mem=$(free -g | awk 'FNR==2 {print $3, $4}')
 fi
 
-# Disk usage
+# Disk usage (size, used, avail, capacity)
 if [[ "$(uname -s)" == "Darwin" ]]; then
   disk_usg=$(df -h | awk '$NF == "/" {print $2, $3, $4, $5}')
 else
