@@ -21,8 +21,6 @@ Sample output:
                            (_)_(_)     -----------------------
                             (o o)  _ _/
                            ==\o/==
-
-
 HOSTNAME(FQDN)................: pywype.psych.nyu.edu
 LAST LOGIN....................: pi pts/0 10.27.0.162 Thu Jan 16 12:10 still logged in
 UPTIME........................: 2 min 1
