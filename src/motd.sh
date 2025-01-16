@@ -99,19 +99,11 @@ else
 fi
 
 # MAC address
-macaddr=$(
-  case $(uname -s) in
-  Darwin)
-    ifconfig | awk '/ether/ {print $2; exit}'
-    ;;
-  Linux)
-    ip link | awk '/ether/ {print $2; exit}'
-    ;;
-  *)
-    echo "Unknown"
-    ;;
-  esac
-)
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  macddr=$(ifconfig | awk '/ether/ {print $2; exit}')
+else
+  macaddr=$(ip link | awk '/ether/ {print $2; exit}')
+fi
 
 #################
 # Meat & Potatoes
