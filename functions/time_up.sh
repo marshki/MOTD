@@ -3,15 +3,16 @@
 # e.g.: "1 day, HH:MM" or: "HH:MM".
 
 time_up() {
-  # uptime
-  # sed to stip commas
-  # awk to print columns (depending on if uptime is days or hours)
-  local uptime_info=$(uptime | sed 's/,//g')
-  if [[ "$uptime_info" == *"day"* ]]; then
-    printf "%s\n" "$uptime_info" | awk '{ print $3, $4, $5 }'
-  else
-    printf "%s\n" "$uptime_info" | awk '{ print $3 }'
-  fi
+  # uptime 
+  # sed to strip commas 
+  # awk to handle both 'day' and non-'day' cases
+  local uptime_info
+  uptime_info=$(uptime | sed 's/,//g')
+
+  printf "%s\n" "$uptime_info" | awk '
+    / day/ { print $3, $4, $5 }
+    !/ day/ { print $3 }
+  '
 }
 
 time_up
