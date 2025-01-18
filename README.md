@@ -40,7 +40,7 @@ A note about:
 
 You may need to logout/login, or open a new terminal for the change to take effect.
 
-**In Debian, Ubuntu**:
+**In Debian, Ubuntu**: (update-motd framework([https://manpages.ubuntu.com/manpages/focal/en/man5/update-motd.5.htm]
 
 **In macOS (per user)**:
 
