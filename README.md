@@ -40,7 +40,7 @@ A note about:
 
 You may need to logout/login, or open a new terminal for the change to take effect.
 
-**In Debian, Ubuntu:**:
+**In Debian, Ubuntu**:
 
 **In macOS (per user)**:
 
