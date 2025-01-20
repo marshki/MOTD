@@ -40,7 +40,7 @@ Notes:
 
 You may need to logout/login, or open a new terminal for change to take effect.
 
-OS Instructions:
+Instructions by OS:
 ----------------
 **In Debian, Ubuntu (global)**:
 
