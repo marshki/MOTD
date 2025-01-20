@@ -42,7 +42,9 @@ You may need to logout/login, or open a new terminal for change to take effect.
 
 OS Instructions:
 ----------------
-**In Debian, Ubuntu**: [update-motd framework](https://manpages.ubuntu.com/manpages/focal/en/man5/update-motd.5.htm)
+**In Debian, Ubuntu**: 
+
+[update-motd framework](https://manpages.ubuntu.com/manpages/focal/en/man5/update-motd.5.htm)
 
 **In macOS (per user)**:
 
