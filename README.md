@@ -66,21 +66,21 @@ Restart the `ssh service` with:
 
 Place `motd.sh` in: `.bash_profile`, e.g.:
 
-- `cat motd.sh >> ~/.bash_profile`,
+- `cat motd.sh >> ~/.bash_profile`
 
 then source the file:
 
-- `source ~/.bash_profile`.
+- `source ~/.bash_profile`
 
 **In Red Hat Enterprise Linux (RHEL) (global)**:
 
 Place `motd.sh` in: `/etc/profile.d`, e.g.:
 
-- `cp -v motd.sh > /etc/profile.d/`.
+- `cp -v motd.sh > /etc/profile.d/`
 
 Set permisisons on the file:
 
-- `chmod 755 /etc/profile.d/motd.sh`.
+- `chmod 755 /etc/profile.d/motd.sh`
 
 ## History 
 v.0.1 14-JUN-2018
