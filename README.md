@@ -44,19 +44,19 @@ OS Instructions:
 ----------------
 **In Debian, Ubuntu (global)**:
 
-Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome`
+Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome` by creating the file, e.g.:
 
-- create the file, e.g. `sudo cat motd.sh > /etc/update-motd.d/00-welcome`
+- `sudo cat motd.sh > /etc/update-motd.d/00-welcome`
 
 Make the file executable with:
 
 - `sudo chmod +x /etc/update-motd.d/00-welcome`
 
-Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`:
+Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`, by backing up the file, then editing it:
 
-- backup the file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+- `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 
-- edit the file: `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
+- `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
 
 Restart the `ssh service` with: 
 
