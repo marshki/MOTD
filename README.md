@@ -47,7 +47,7 @@ OS Instructions:
 Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome`,
 by creating the file, e.g. `sudo cat motd.sh > /etc/update-motd.d/00-welcome`
 
-Make the file executable with: `sudo chmod +x `/etc/update-motd.d/00-welcome`
+Make the file executable with: `sudo chmod +x /etc/update-motd.d/00-welcome`
 
 Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`:
 
