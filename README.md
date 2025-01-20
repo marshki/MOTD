@@ -33,7 +33,7 @@ Sample output:
 
 ## Getting Started 
 Notes: 
-======
+------
 **motd**: A read-only file, located at: `/etc/motd`.
 
 **motd.sh**: An executable shell script, placed in `/etc/profile.d`.
