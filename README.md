@@ -44,30 +44,43 @@ OS Instructions:
 ----------------
 **In Debian, Ubuntu (global)**:
 
-Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome`,
-by creating the file, e.g. `sudo cat motd.sh > /etc/update-motd.d/00-welcome`
+Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome`
 
-Make the file executable with: `sudo chmod +x /etc/update-motd.d/00-welcome`
+- create the file, e.g. `sudo cat motd.sh > /etc/update-motd.d/00-welcome`
+
+Make the file executable with:
+
+- `sudo chmod +x /etc/update-motd.d/00-welcome`
 
 Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`:
 
 - backup the file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+
 - edit the file: `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
 
-Restart the `ssh service` with: `sudo systemctl restart sshd`
+Restart the `ssh service` with: 
+
+- `sudo systemctl restart sshd`
 
 **In macOS (per user)**:
 
-Place `motd.sh` in: `.bash_profile`, e.g.: `cat motd.sh >> ~/.bash_profile`.
+Place `motd.sh` in: `.bash_profile`, e.g.:
 
-Source the file: `source ~/.bash_profile`.
+- `cat motd.sh >> ~/.bash_profile`,
 
+then source the file:
+
+- `source ~/.bash_profile`.
 
 **In Red Hat Enterprise Linux (RHEL) (global)**:
 
-Place `motd.sh` in: `/etc/profile.d`, e.g.: `cp -v motd.sh > /etc/profile.d/`.
+Place `motd.sh` in: `/etc/profile.d`, e.g.:
 
-Set permisisons on the file: `chmod 755 /etc/profile.d/motd.sh`.
+- `cp -v motd.sh > /etc/profile.d/`.
+
+Set permisisons on the file:
+
+- `chmod 755 /etc/profile.d/motd.sh`.
 
 ## History 
 v.0.1 14-JUN-2018
