@@ -32,14 +32,16 @@ Sample output:
     MAC ADDRESS...................: b8:27:eb:05:6a:c7
 
 ## Getting Started 
-A note about: 
-
+Notes: 
+------
 **motd**: A read-only file, located at: `/etc/motd`.
 
 **motd.sh**: An executable shell script, placed in `/etc/profile.d`.
 
-You may need to logout/login, or open a new terminal for the change to take effect.
+You may need to logout/login, or open a new terminal for change to take effect.
 
+OS instructions:
+----------------
 **In Debian, Ubuntu**: [update-motd framework](https://manpages.ubuntu.com/manpages/focal/en/man5/update-motd.5.htm)
 
 **In macOS (per user)**:
