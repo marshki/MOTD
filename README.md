@@ -51,8 +51,8 @@ Make the file executable with: `sudo chmod +x `/etc/update-motd.d/00-welcome`
 
 Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`:
 
-- 1) backup the file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
-- 2) edit the file: `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
+- backup the file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+- edit the file: `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
 
 Restart the `ssh service` with: `sudo systemctl restart sshd`
 
