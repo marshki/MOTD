@@ -42,9 +42,19 @@ You may need to logout/login, or open a new terminal for change to take effect.
 
 OS Instructions:
 ----------------
-**In Debian, Ubuntu**: 
+**In Debian, Ubuntu (global)**:
 
-[update-motd framework](https://manpages.ubuntu.com/manpages/focal/en/man5/update-motd.5.htm)
+Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome`,
+by creating the file, e.g. `sudo cat motd.sh > /etc/update-motd.d/00-welcome`
+
+Make the file executable with: `sudo chmod +x `/etc/update-motd.d/00-welcome`
+
+Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`:
+
+- 1) backup the file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+- 2) edit the file: `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
+
+Restart the `ssh service` with: `sudo systemctl restart sshd`
 
 **In macOS (per user)**:
 
