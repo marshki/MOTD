@@ -33,14 +33,14 @@ Sample output:
 
 ## Getting Started 
 Notes: 
-------
+======
 **motd**: A read-only file, located at: `/etc/motd`.
 
 **motd.sh**: An executable shell script, placed in `/etc/profile.d`.
 
 You may need to logout/login, or open a new terminal for change to take effect.
 
-OS instructions:
+OS Instructions:
 ----------------
 **In Debian, Ubuntu**: [update-motd framework](https://manpages.ubuntu.com/manpages/focal/en/man5/update-motd.5.htm)
 
