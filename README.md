@@ -31,8 +31,8 @@ Sample output:
     IP ADDRESS....................: 172.22.114.85
     MAC ADDRESS...................: b8:27:eb:05:6a:c7
 
-## Getting Started 
-Notes: 
+## Getting Started
+Notes:
 ------
 **motd**: A read-only file, located at: `/etc/motd`.
 
@@ -64,7 +64,7 @@ Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`,
 
 - `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
 
-Restart the `ssh service` with: 
+Restart the `ssh service` with:
 
 - `sudo systemctl restart sshd`
 
@@ -88,10 +88,10 @@ Set permisisons on the file:
 
 - `chmod 755 /etc/profile.d/motd.sh`
 
-## History 
+## History
 v.0.1 14-JUN-2018
 
 v.0.2 16-JAN-2024
 
-## License 
+## License
 [LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE).
