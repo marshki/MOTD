@@ -38,10 +38,16 @@ Notes:
 
 **motd.sh**: An executable shell script, placed in `/etc/profile.d`.
 
-You may need to logout/login, or open a new terminal for change to take effect.
+For changes to take effect, you may need to do one (1) of the following:
+
+- open a new terminal window
+
+- logout/login
+
+- restart the ssh service
 
 Instructions by OS:
-----------------
+-------------------
 **In Debian, Ubuntu (global)**:
 
 Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome` by creating the file, e.g.:
