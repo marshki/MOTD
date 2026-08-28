@@ -13,6 +13,7 @@ Open to all, but tailored to rigs at [New York University's](https://www.nyu.edu
  - [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html)
 
 Sample output:
+```
                              )
                             (__        -----------------------
                             _  )_      < CBI//CNS//PSYCH TEK >
@@ -29,6 +30,7 @@ MEMORY USAGE..................: 174Mi 96Mi (total available)
 DISK USAGE....................: 7.1G total, 4.2G used, 2.6G available (63%)
 IP ADDRESS....................: 172.22.114.85
 MAC ADDRESS...................: b8:27:eb:05:6a:c7
+```
 
 ## Getting Started
 Notes:
