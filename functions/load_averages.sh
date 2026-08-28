@@ -3,8 +3,8 @@
 
 load_averages() {
   # uptime, then extract string to the left of (:)
-  load_avg=$(uptime |awk '{ sub(/^.*: /, ""); print; }')
-  printf "%s\n" "$load_avg (1, 5, 15 min)"
+  load_average=$(uptime |awk '{ sub(/^.*: /, ""); print; }')
+  printf "%s\n" "$load_average (1, 5, 15 min)"
 }
 
 load_averages
