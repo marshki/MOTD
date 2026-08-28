@@ -86,9 +86,10 @@ fi
 
 # Disk usage (size, used, avail, capacity)
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  disk_usg=$(df -h | awk '$NF == "/" {print $2, $3, $4, $5}')
+  disk_usg=$(df -H | awk '$NF == "/" { print $2 " total, " $3 " used, " $4 " available (" $5 ")" }') 
 else
-  disk_usg=$(df -h --output=size,used,avail,pcent,target | awk '$5 == "/" {print $1, $2, $3, $4}')
+  disk_usg=$(df -h --output=size,used,avail,pcent,target | 
+    awk '$5 == "/" {print $1 " total, " $2 " used, " $3 " available (" $4 ")"}')
 fi
 
 # IP address
@@ -117,6 +118,6 @@ printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up_result}"
 printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_average} (1 5 15 min)"
 printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
 printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (total available)"
-printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
+printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg}"
 printf -- '%.30s: %s\n' "${HEADR[7]}$(dot 30 .)" "${eth0}"
 printf -- '%.30s: %s\n' "${HEADR[8]}$(dot 30 .)" "${macaddr}"
