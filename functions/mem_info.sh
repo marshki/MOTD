@@ -3,7 +3,7 @@
   
 case $(uname -s) in
 Darwin)
-  # memory stats: total unused
+  # memory stats: total available
   # top sample once, delay 0 secs
   # awk regex, return columns 2,6
   # --> KiB is returned in truncated format, which can throw off results <--
@@ -11,7 +11,7 @@ Darwin)
   printf "%s\n" "$memory (total available)"
   ;;
 Linux)
-  # memory stats: total unused
+  # memory stats: total available 
   # free, then awk second row, print columns 3,4
   memory=$(free --human |awk 'FNR==2 {print $2, $7}')
   printf "%s\n" "$memory (total available)"
