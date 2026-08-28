@@ -71,7 +71,7 @@ last_log=$(last | awk 'NR==1' | tr -s ' ')
 # Uptime
 time_up_result=$(time_up)
 
-# Load averages (1 min 5 mins 15 mins)
+# Load averages (1 5 15 mins)
 load_average=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
 
 # Running processes (total)
@@ -81,7 +81,7 @@ procs=$(ps ax | wc -l | tr -d " ")
 if [[ "$(uname -s)" == "Darwin" ]]; then
   mem=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2,$6}')
 else
-  mem=$(free -g | awk 'FNR==2 {print $3, $4}')
+  mem=$(free -h | awk 'FNR==2 {print $2, $7}')
 fi
 
 # Disk usage (size, used, avail, capacity)
@@ -116,7 +116,7 @@ printf -- '%.30s: %s\n' "${HEADR[1]}$(dot 30 .)" "${last_log}"
 printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up_result}"
 printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_average} (1 5 15 min)"
 printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
-printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (used unused)"
+printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (total available)"
 printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
 printf -- '%.30s: %s\n' "${HEADR[7]}$(dot 30 .)" "${eth0}"
 printf -- '%.30s: %s\n' "${HEADR[8]}$(dot 30 .)" "${macaddr}"
