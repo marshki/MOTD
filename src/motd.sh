@@ -7,7 +7,7 @@
 #
 # Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
 #
-# Date: 2024.01.16
+# Date: 2026.08.26
 # License MIT
 
 ##############
