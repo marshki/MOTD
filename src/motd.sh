@@ -18,7 +18,7 @@ HEADR=(
 "HOSTNAME(FQDN)"
 "LAST LOGIN"
 UPTIME
-"LOAD AVGS."
+"LOAD AVGERAGES."
 "RUNNING PROCESSES"
 "MEMORY USAGE"
 "DISK USAGE"
@@ -72,7 +72,7 @@ last_log=$(last | awk 'NR==1' | tr -s ' ')
 time_up_result=$(time_up)
 
 # Load averages (1 min 5 mins 15 mins)
-load_avg=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
+load_average=$(uptime | awk '{ sub(/^.*: /, ""); print; }')
 
 # Running processes (total)
 procs=$(ps ax | wc -l | tr -d " ")
@@ -114,7 +114,7 @@ maus
 printf -- '%.30s: %s\n' "${HEADR[0]}$(dot 30 .)" "${host_name}"
 printf -- '%.30s: %s\n' "${HEADR[1]}$(dot 30 .)" "${last_log}"
 printf -- '%.30s: %s\n' "${HEADR[2]}$(dot 30 .)" "${time_up_result}"
-printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_avg} (1 min 5 mins 15 mins)"
+printf -- '%.30s: %s\n' "${HEADR[3]}$(dot 30 .)" "${load_average} (1 5 15 min)"
 printf -- '%.30s: %s\n' "${HEADR[4]}$(dot 30 .)" "${procs} (total)"
 printf -- '%.30s: %s\n' "${HEADR[5]}$(dot 30 .)" "${mem} (used unused)"
 printf -- '%.30s: %s\n' "${HEADR[6]}$(dot 30 .)" "${disk_usg} (size used avail capacity)"
