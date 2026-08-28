@@ -89,7 +89,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   disk_usg=$(df -H | awk '$NF == "/" { print $2 " total, " $3 " used, " $4 " available (" $5 ")" }') 
 else
   disk_usg=$(df -h --output=size,used,avail,pcent,target | 
-    awk '$5 == "/" {print $1 " total, " $2 " used, " $3 " available (" $4 used)"}')
+    awk '$5 == "/" {print $1 " total, " $2 " used, " $3 " available (" $4 " used)"}')
 fi
 
 # IP address
