@@ -15,4 +15,12 @@ time_up() {
   '
 }
 
-time_up
+# time_up
+
+#uptime_seconds() {
+
+#awk '{print $1}' /proc/uptime
+
+boot_time=$(sysctl -n kern.boottime | awk '{print int($4)}')
+current_time=$(date +%s)
+echo $((current_time - boot_time))
