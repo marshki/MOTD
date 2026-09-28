@@ -17,10 +17,23 @@ time_up() {
 
 # time_up
 
-#uptime_seconds() {
+uptime_seconds() {
 
-#awk '{print $1}' /proc/uptime
+  case $(uname -s) in
+    Darwin)
+      # awk to parse field 1, as an integer, from kern.boottime
+      boot_time=$(sysctl -n kern.boottime | awk '{print int($4)}')
+    ;;
+    Linux)
+      # awk to parse field 1, as an integer, from /proc/uptime 
+      boot_time=$(awk '{print int($1)}' /proc/uptime)
+    ;;
+    *)
+      # unsupported OS
+     ;;
+  esac
+}
 
-boot_time=$(sysctl -n kern.boottime | awk '{print int($4)}')
 current_time=$(date +%s)
 echo $((current_time - boot_time))
+
