@@ -15,7 +15,7 @@ load_averages() {
   ;;
   *)
     # unsupported OS
-   ;;
+  ;;
   esac
   [[ -n "$load_average" ]] && printf "%s\n" "$load_average (1, 5, 15 min)"
 }
