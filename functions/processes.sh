@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Total no. of running processes.
 
-processes() {
-  # ps all user's processes
+process_count() {
+  # ps to list allprocesses, showing only process ID column
   # wc lines, then tr to delete whitespace
-  procs=$(ps ax | wc -l | tr -d " ")
+  procs=$(ps -A -o pid= | wc -l | tr -d " ")
   printf "%s\n" "$procs (total)"
 }
 
-processes
+process_count
