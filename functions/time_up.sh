@@ -24,4 +24,20 @@ uptime_seconds() {
   [[ -n "$uptime_secs" ]] && printf "%s\n" "$uptime_secs"
 }
 
-uptime_seconds
+format_uptime() {
+  local secs=$1 days hours mins
+
+  [[ -n "$secs" ]] || return
+
+  days=$((secs / 86400))
+  hours=$((secs % 86400 / 3600))
+  mins=$((secs % 3600 / 60))
+
+  if (( days > 0 )); then
+    printf "%dd %dh %dm\n" "$days" "$hours" "$mins"
+  else
+    printf "%dh %dm\n" "$hours" "$mins"
+  fi
+}
+
+format_uptime 90061
