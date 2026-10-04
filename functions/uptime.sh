@@ -25,14 +25,20 @@ uptime_seconds() {
 }
 
 format_uptime() {
+  # $1: uptime in seconds
   local secs=$1 days hours mins
 
+  # no input: print nothing
   [[ -n "$secs" ]] || return
 
+  # whole days
   days=$((secs / 86400))
+  # seconds left after removing whole days, as whole hours
   hours=$((secs % 86400 / 3600))
+  # seconds left after removing whole hours, as whole minutes
   mins=$((secs % 3600 / 60))
 
+  # show days if there's at least one
   if (( days > 0 )); then
     printf "%dd %dh %dm\n" "$days" "$hours" "$mins"
   else
