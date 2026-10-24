@@ -3,8 +3,9 @@
 
 host_name() {
   # FQDN or hostname 
-  local host=$(hostname -f 2>/dev/null || hostname 2>/dev/null)
-  [[ -n "$host" ]] && printf "%s\n" "$host".
+  local host 
+  host=$(hostname -f 2>/dev/null || hostname 2>/dev/null)
+  [[ -n "$host" ]] && printf "%s\n" "$host"
 }
 
 host_name
