@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# disk stats: total used available %capacity in GBs
+# Disk usage: total, used, available, percent used.
 
 disk_usage() {
   # awk second row, then take columns 2-5 inclusive
