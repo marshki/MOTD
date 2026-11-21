@@ -20,6 +20,9 @@ default_interface() {
     ;;
   esac
 
+  [[ -n "$iface" ]] && printf "%s\n" "$iface"
+}
+
 mac_address() {
   # $1: interface name, e.g. en0
   local macaddr
