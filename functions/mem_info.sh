@@ -22,3 +22,5 @@ memory_usage() {
 
   [[ -n "$memory" ]] && printf "%s\n" "$memory"
 }
+
+memory_usage
