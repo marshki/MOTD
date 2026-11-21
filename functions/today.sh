@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-# Today: date command formatted as:
-# year month hour minute 24-hour timezone(abbr.)
+# Current date and time, e.g.: Saturday, November 21, 2026 13:53 EST
 
 today() {
-  today=$(date +"%Y %B %e, %A, %T %Z")
-  printf "%s \n" "$today"
+  local now
+
+  # same format codes on macOS and Linux, so no case needed
+  now=$(date +"%A, %B %d, %Y %H:%M %Z")
+
+  printf "%s \n" "$now"
 }
 
 today
