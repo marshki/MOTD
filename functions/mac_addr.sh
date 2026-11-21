@@ -19,3 +19,27 @@ default_interface() {
     # unsupported OS
     ;;
   esac
+
+mac_address() {
+  # $1: interface name, e.g. en0
+  local macaddr
+
+  case $(uname -s) in
+  Darwin)
+    # ifconfig for that interface: "ether" line, field 2
+    macaddr=$(ifconfig "$1" 2>/dev/null | awk '/ether/ {print $2; exit}')
+    ;;
+  Linux)
+    # kernel stores the MAC in a one-line file per interface
+    macaddr=$(cat "/sys/class/net/$1/address" 2>/dev/null)
+    ;;
+  *)
+    # unsupported OS
+    ;;
+  esac
+
+  [[ -n "$macaddr" ]] && printf "%s\n" "$macaddr"
+}
+
+iface=$(default_interface)
+mac_address "$iface"
