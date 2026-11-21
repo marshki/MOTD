@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Check OS. Return free and used memory based on result.
+# Memory usage.
   
 case $(uname -s) in
 Darwin)
