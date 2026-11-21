@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
-# Memory usage.
+# Memory usage (used and unused).
   
-case $(uname -s) in
-Darwin)
-  # memory stats: total available
-  # top sample once, delay 0 secs
-  # awk regex, return columns 2,6
-  # --> KiB is returned in truncated format, which can throw off results <--
-  memory=$(top -l 1 -s 0 | awk '/PhysMem/ {print $2, $8}')
-  printf "%s\n" "$memory (total available)"
+memory_usage() { 
+  local memory
+
+  case $(uname -s) in
+  Darwin)
+  # top: sample once, no delay; PhysMem line, field 2 (used)
+  memory=$(top -l 1 -s 0 2>/dev/null |
+    awk '/PhysMem/ {print $2 " used, " $8 " unused"}')
   ;;
 Linux)
-  # memory stats: total available 
-  # free, then awk second row, print columns 3,4
-  memory=$(free --human |awk 'FNR==2 {print $2, $7}')
-  printf "%s\n" "$memory (total available)"
+  # free: second line (Mem:), fields 3 (used) and 4 (free)
+  memory=$(free --human 2>/dev/null |
+    awk 'FNR==2 {print $3 " used, " $4 " unused"}')
   ;;
 *)
-  printf "%s\n" "He can't handle your speed, $(uname -s)"
+  # unsupported OS
   ;;
 esac
+}
