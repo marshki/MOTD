@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Check OS and return primary IP address.
-  
+# Primary IPv4 address: the IP of the default-route interface.
+ 
 case $(uname -s) in
 Darwin)
   # get IP address for eth0 (primary) in macOS
