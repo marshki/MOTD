@@ -8,7 +8,7 @@ dot() {
 print_header() {
   local title=$1
   local value=$2
-  printf -- '%.30s: %s\n' "${title}$(dot 30 .)" "${value}"
+  printf -- '%.30s: %s\n' "${title}$(dot 30 .)" "${value:-n/a}"
 }
 
 print_header
