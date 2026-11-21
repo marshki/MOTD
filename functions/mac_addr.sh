@@ -1,18 +1,21 @@
 #!/usr/bin/env/bash
-# Detect OS and extract MAC address.
+# Mac address of the default-route interface.
 
-case $(uname -s) in
-Darwin)
-  # awk to extract 'ether' and print 2nd column
-  macaddr=$(ifconfig | awk '/ether/ {print $2; exit}')
-  printf "%s\n" "$macaddr"
-  ;;
-Linux)
-  # awk to extract 'ether' and print 2nd column
-  macaddr=$(ip link | awk '/ether/ {print $2; exit}')
-  printf "%s\n" "$macaddr"
-  ;;
-*)
-  printf "%s\n" "He can't handle your speed, $(uname -s)"
-  ;;
-esac
+default_interface() {
+  local iface
+
+  case $(uname -s) in
+  Darwin)
+    # route: "interface: <name>" line, field 2
+    iface=$(route -n get default 2>/dev/null |
+      awk '/interface:/ {print $2; exit}')
+    ;;
+  Linux)
+    # ip route: "default via <gateway> dev <interface> ...", field 5
+    iface=$(ip route show default 2>/dev/null |
+      awk '{print $5; exit}')
+    ;;
+  *)
+    # unsupported OS
+    ;;
+  esac
