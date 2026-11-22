@@ -13,20 +13,24 @@
 # Date: 2026.08.26
 # License MIT
 
-##############
-# Header Array
-##############
+#########
+# Helpers
+#########
 
-HEADR=(
-"HOSTNAME(FQDN)"
-"LAST LOGIN"
-UPTIME
-"LOAD AVGERAGES."
-"RUNNING PROCESSES"
-"MEMORY USAGE"
-"DISK USAGE"
-"IP ADDRESS"
-"MAC ADDRESS")
+maus() {
+  # ASCII mouse with logo; heredoc prints as written
+  cat <<'ART'
+
+                             )
+                            (__        -----------------------
+                            _  )_      < CBI//CNS//PSYCH TEK >
+                           (_)_(_)     -----------------------
+                            (o o)  _ _/
+                           ==\o/==
+
+ART
+}
+
 
 ###########
 # Functions
@@ -41,19 +45,6 @@ time_up() {
     / day/ { print $3, $4, $5 }
     !/ day/ { print $3 }
   '
-}
-
-maus() {
-  # ASCII mouse w/text box, centered
-  printf '
-                             )
-                            (__        -----------------------
-                            _  )_      < CBI//CNS//PSYCH TEK >
-                           (_)_(_)     -----------------------
-                            (o o)  _ _/
-                           ==\o/==
-
-'
 }
 
 dot() {
