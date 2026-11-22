@@ -42,6 +42,21 @@ print_header() {
   printf -- '%.30s: %s\n' "$1$(dot 30 .)" "${2:-n/a}"
 }
 
+format_uptime() {
+  # $1: uptime in seconds; prints "Xd Xh Xm" (days omitted when zero)
+  local secs=$1 days hours mins
+  [[ -n "$secs" ]] || return
+
+  days=$((secs / 86400))
+  hours=$((secs % 86400 / 3600))
+  mins=$((secs % 3600 / 60))
+
+  if (( days > 0 )); then
+    printf "%dd %dh %dm\n" "$days" "$hours" "$mins"
+  else
+    printf "%dh %dm\n" "$hours" "$mins"
+  fi
+}
 
 ###########
 # Functions
