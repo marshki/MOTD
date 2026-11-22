@@ -37,6 +37,11 @@ dot() {
   printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
 }
 
+print_header() {
+  # label padded with dots to 30 columns, then the value (or n/a)
+  printf -- '%.30s: %s\n' "$1$(dot 30 .)" "${2:-n/a}"
+}
+
 
 ###########
 # Functions
@@ -53,10 +58,7 @@ time_up() {
   '
 }
 
-dot() {
-  # Print a horizontal line of characters
-  printf '%*s\n' "${1:-${COLUMNS}}" | tr ' ' "${2:-#}"
-}
+
 
 ###########
 # Variables
