@@ -58,22 +58,35 @@ format_uptime() {
   fi
 }
 
-###########
-# Functions
-###########
+######
+# Main
+######
 
-time_up() {
-  # Parse uptime to handle both 'day' and non-'day' cases
-  local uptime_info
-  uptime_info=$(uptime | sed 's/,//g')
+main() {
+  local host_name today procs
 
-  printf "%s\n" "$uptime_info" | awk '
-    / day/ { print $3, $4, $5 }
-    !/ day/ { print $3 }
-  '
+  # same on every OS
+  host_name=$(hostname -f 2>/dev/null || hostname 2>/dev/null)
+  today=$(date +"%A, %B %d, %Y %H:%M %Z")
+  procs=$(ps -A -o pid= 2>/dev/null | wc -l | tr -d ' ')
+
+  # OS-specific value
+  case "$(uname -s)" in
+  Darwin)
+    # to do
+    ;;
+  Linux)
+    # to do
+    ;;
+  esac
+
+  maus
+  print_header "HOSTNAME(FQDN)"    "$host_name"
+  print_header "DATE"              "$today"
+  print_header "RUNNING PROCESSES" "${procs:+$procs (total)}"
 }
 
-
+main
 
 ###########
 # Variables
