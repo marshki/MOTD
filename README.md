@@ -86,5 +86,7 @@ v.0.1 14-JUN-2018
 
 v.0.2 16-JAN-2024
 
+v.0.3 22-NOV-2026
+
 ## License
 [LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE).
