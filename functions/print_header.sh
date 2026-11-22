@@ -11,4 +11,5 @@ print_header() {
   printf -- '%.30s: %s\n' "${title}$(dot 30 .)" "${value:-n/a}"
 }
 
-print_header
+print_header "HOSTNAME(FQDN)" "pywype.psych.nyu.edu"
+print_header "IP ADDRESS" ""
