@@ -42,11 +42,12 @@ Currently supported releases of:
 * Raspberry Pi OS
 * Red Hat Enterprise Linux (RHEL)
 
-Requires Bash 3.2 or later. The script runs on stock macOS Bash, so it avoids Bash 4+ features.
+Requires Bash 3.2 or later. The script runs on stock macOS Bash, avoiding Bash 4+ features.
 On other systems it prints what it can and shows `n/a` for the rest.
 
 ## Installation
-Pick the method for your system. Each one runs the script at login; none of them source it into your shell.
+Pick the method for your system. Each one runs the script at login;
+none of them source it into your shell.
 
 ### Debian, Ubuntu, Raspberry Pi OS (global)
 `update-motd.d` runs on SSH login:
@@ -75,7 +76,8 @@ macOS uses zsh by default. If you use Bash, add the line to `~/.bash_profile` in
 Open a new terminal window or log in again to see the message.
 
 ## Notes
-* **Last login** isn't part of this script. sshd already shows it for each user (`PrintLastLog yes`, the default), so leave that setting on.
+* **Last login** isn't part of this script. sshd already shows it for each user 
+(`PrintLastLog yes`, the default), so leave that setting on.
 * The static `/etc/motd` file, if present, is separate and is shown alongside this output.
 
 ## License
@@ -87,6 +89,10 @@ v.0.1 14-JUN-2018
 v.0.2 16-JAN-2024
 
 v.0.3 22-NOV-2026
+
+## Acknowledgments
+Portions of the shell scripting and documentation in this repository 
+were developed with assistance from Claude. All code was reviewed and tested by the author.
 
 ## License
 [LICENSE](https://github.com/marshki/MOTD/blob/master/LICENSE).
