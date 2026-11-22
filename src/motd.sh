@@ -83,7 +83,13 @@ main() {
     mac_addr=$(ifconfig "$iface" 2>/dev/null | awk '/ether/ {print $2; exit}')
     ;;
   Linux)
-    # to do
+    uptime_secs=$(awk '{print int($1)}' /proc/uptime 2>/dev/null)
+    load_average=$(awk '{print $1, $2, $3}' /proc/loadavg 2>/dev/null)
+    memory=$(free --human 2>/dev/null | awk 'FNR==2 {print $3 " used, " $4 " unused"}')
+    mount=/
+    iface=$(ip route show default 2>/dev/null | awk '{print $5; exit}')
+    ip_addr=$(ip -4 addr show dev "$iface" 2>/dev/null | awk '/inet / {print $2; exit}' | cut -d/ -f1)
+    mac_addr=$(cat "/sys/class/net/$iface/address" 2>/dev/null)#
     ;;
   esac
 
