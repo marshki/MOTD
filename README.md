@@ -12,7 +12,7 @@ Open to all, but tailored to rigs at [New York University's](https://www.nyu.edu
  - [The Center for Neural Science](https://as.nyu.edu/departments/cns.html)
  - [Department of Psychology](https://as.nyu.edu/departments/psychology.html)
 
-Sample output:
+## Sample output
 ```
 
                              )
@@ -31,22 +31,6 @@ MEMORY USAGE..................: 91Mi used, 33Mi unused
 DISK USAGE....................: 7.1G total, 4.4G used, 2.4G available (66% used)
 IP ADDRESS....................: 172.22.114.85
 MAC ADDRESS...................: b8:27:eb:05:6a:c7#
-```
-
-# motd
-
-Drop-in Bash script for a [message of the day](https://en.wikipedia.org/wiki/Motd_(Unix)) in an interactive shell.
-
-Open to all, but tailored to rigs at [New York University](https://www.nyu.edu/):
-
-* [Neural Science](https://as.nyu.edu/departments/cns.html)
-* [Psychology](https://as.nyu.edu/departments/psychology.html)
-* [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html)
-
-## Sample output
-
-```
-<!-- paste current output from a real rig here -->
 ```
 
 ## Supported systems
