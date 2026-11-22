@@ -34,7 +34,6 @@ MAC ADDRESS...................: b8:27:eb:05:6a:c7#
 ```
 
 ## Supported systems
-
 Currently supported releases of:
 
 * macOS
@@ -47,11 +46,9 @@ Requires Bash 3.2 or later. The script runs on stock macOS Bash, so it avoids Ba
 On other systems it prints what it can and shows `n/a` for the rest.
 
 ## Installation
-
 Pick the method for your system. Each one runs the script at login; none of them source it into your shell.
 
 ### Debian, Ubuntu, Raspberry Pi OS (global)
-
 `update-motd.d` runs on SSH login:
 
 ```bash
@@ -59,7 +56,6 @@ sudo install -m 755 motd /etc/update-motd.d/00-welcome
 ```
 
 ### RHEL (global)
-
 RHEL has no `update-motd.d`, so a `profile.d` hook runs the script for interactive shells:
 
 ```bash
@@ -68,7 +64,6 @@ echo 'case $- in *i*) /usr/local/bin/motd ;; esac' | sudo tee /etc/profile.d/mot
 ```
 
 ### macOS (per user)
-
 ```bash
 sudo mkdir -p /usr/local/bin
 sudo install -m 755 motd /usr/local/bin/motd
@@ -80,12 +75,10 @@ macOS uses zsh by default. If you use Bash, add the line to `~/.bash_profile` in
 Open a new terminal window or log in again to see the message.
 
 ## Notes
-
 * **Last login** isn't part of this script. sshd already shows it for each user (`PrintLastLog yes`, the default), so leave that setting on.
 * The static `/etc/motd` file, if present, is separate and is shown alongside this output.
 
 ## License
-
 MIT
 
 ## History
