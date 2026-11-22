@@ -31,6 +31,12 @@ maus() {
 ART
 }
 
+dot() {
+  # print a line of characters: width $1, character $2
+  # shellcheck disable=SC2183
+  printf '%*s\n' "${1:-$COLUMNS}" | tr ' ' "${2:-#}"
+}
+
 
 ###########
 # Functions
