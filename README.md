@@ -14,6 +14,7 @@ Open to all, but tailored to rigs at [New York University's](https://www.nyu.edu
 
 Sample output:
 ```
+
                              )
                             (__        -----------------------
                             _  )_      < CBI//CNS//PSYCH TEK >
@@ -22,14 +23,14 @@ Sample output:
                            ==\o/==
 
 HOSTNAME(FQDN)................: pywype.psych.nyu.edu
-LAST LOGIN....................: marshki pts/0 192.168.141.74 Fri Aug 28 13:00 still logged in
-UPTIME........................: 21:02
-LOAD AVGERAGES................: 0.53, 0.47, 0.27 (1 5 15 min)
-RUNNING PROCESSES.............: 93 (total)
-MEMORY USAGE..................: 174Mi 96Mi (total available)
-DISK USAGE....................: 7.1G total, 4.2G used, 2.6G available (63%)
+DATE..........................: Sunday, November 22, 2026 12:11 EST
+UPTIME........................: 49d 9h 56m
+LOAD AVERAGES.................: 0.12 0.06 0.06 (1, 5, 15 min)
+RUNNING PROCESSES.............: 89 (total)
+MEMORY USAGE..................: 91Mi used, 33Mi unused
+DISK USAGE....................: 7.1G total, 4.4G used, 2.4G available (66% used)
 IP ADDRESS....................: 172.22.114.85
-MAC ADDRESS...................: b8:27:eb:05:6a:c7
+MAC ADDRESS...................: b8:27:eb:05:6a:c7#
 ```
 
 ## Getting Started
