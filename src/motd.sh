@@ -2,8 +2,11 @@
 #
 # motd
 #
-# Message of the day (MOTD) for interactive shells in BSD & GNU/Linux.
+# Message of the day (MOTD) for interactive shells on macOS
+# & GNU/Linux (Debian, Raspberry Pi OS, RHEL, and Ubuntu.
 # For wired rigs @ New York University.
+#
+# Bash 3.2
 #
 # Author: M. Krinitz <mjk235 [at] nyu [dot] edu>
 #
