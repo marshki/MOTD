@@ -33,62 +33,76 @@ IP ADDRESS....................: 172.22.114.85
 MAC ADDRESS...................: b8:27:eb:05:6a:c7#
 ```
 
-## Getting Started
-Notes:
-------
-**motd**: A read-only file, located at: `/etc/motd`.
+# motd
 
-**motd.sh**: An executable shell script, placed in `/etc/profile.d`.
+Drop-in Bash script for a [message of the day](https://en.wikipedia.org/wiki/Motd_(Unix)) in an interactive shell.
 
-For changes to take effect, you may need to do one (1) of the following:
+Open to all, but tailored to rigs at [New York University](https://www.nyu.edu/):
 
-- open a new terminal window
+* [Neural Science](https://as.nyu.edu/departments/cns.html)
+* [Psychology](https://as.nyu.edu/departments/psychology.html)
+* [The Center for Brain Imaging](https://as.nyu.edu/research-centers/cbi.html)
 
-- logout/login
+## Sample output
 
-- restart the ssh service
+```
+<!-- paste current output from a real rig here -->
+```
 
-Instructions by OS:
--------------------
-**In Debian, Ubuntu (global)**:
+## Supported systems
 
-Place the contents of `motd.sh` in: `/etc/update-motd.d/00-welcome` by creating the file, e.g.:
+Currently supported releases of:
 
-- `sudo cat motd.sh > /etc/update-motd.d/00-welcome`
+* macOS
+* Ubuntu (LTS)
+* Debian
+* Raspberry Pi OS
+* Red Hat Enterprise Linux (RHEL)
 
-Make the file executable with:
+Requires Bash 3.2 or later. The script runs on stock macOS Bash, so it avoids Bash 4+ features.
+On other systems it prints what it can and shows `n/a` for the rest.
 
-- `sudo chmod +x /etc/update-motd.d/00-welcome`
+## Installation
 
-Modify: `sshd_config` file, changing: `#PrintLastLog yes` to: `PrintLastLog no`, by backing up the file, then editing it:
+Pick the method for your system. Each one runs the script at login; none of them source it into your shell.
 
-- `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+### Debian, Ubuntu, Raspberry Pi OS (global)
 
-- `sudo sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config`
+`update-motd.d` runs on SSH login:
 
-Restart the `ssh service` with:
+```bash
+sudo install -m 755 motd /etc/update-motd.d/00-welcome
+```
 
-- `sudo systemctl restart sshd`
+### RHEL (global)
 
-**In macOS (per user)**:
+RHEL has no `update-motd.d`, so a `profile.d` hook runs the script for interactive shells:
 
-Place `motd.sh` in: `.bash_profile`, e.g.:
+```bash
+sudo install -m 755 motd /usr/local/bin/motd
+echo 'case $- in *i*) /usr/local/bin/motd ;; esac' | sudo tee /etc/profile.d/motd.sh
+```
 
-- `cat motd.sh >> ~/.bash_profile`
+### macOS (per user)
 
-then source the file:
+```bash
+sudo mkdir -p /usr/local/bin
+sudo install -m 755 motd /usr/local/bin/motd
+echo '/usr/local/bin/motd' >> ~/.zprofile
+```
 
-- `source ~/.bash_profile`
+macOS uses zsh by default. If you use Bash, add the line to `~/.bash_profile` instead.
 
-**In Red Hat Enterprise Linux (RHEL) (global)**:
+Open a new terminal window or log in again to see the message.
 
-Place `motd.sh` in: `/etc/profile.d`, e.g.:
+## Notes
 
-- `cp -v motd.sh > /etc/profile.d/`
+* **Last login** isn't part of this script. sshd already shows it for each user (`PrintLastLog yes`, the default), so leave that setting on.
+* The static `/etc/motd` file, if present, is separate and is shown alongside this output.
 
-Set permisisons on the file:
+## License
 
-- `chmod 755 /etc/profile.d/motd.sh`
+MIT
 
 ## History
 v.0.1 14-JUN-2018
